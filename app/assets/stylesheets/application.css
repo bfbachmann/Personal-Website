@@ -84,3 +84,12 @@ body {
 .navbar-inverse, .navbar {
     margin-bottom: 0px !important;
 }
+
+#error-message {
+    color: red;
+    background-color: #ff9999;
+}
+
+.container-fluid {
+    border-radius: 3px;
+}
