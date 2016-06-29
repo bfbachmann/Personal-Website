@@ -3,6 +3,7 @@
 <% @articles.each do |article| %>
 
 	<div class="container-fluid">
+
 		<div class="col-sm-2">
 			<h3> <strong> Title: </strong> </h3>
 			<p> <strong> Text: </strong> </p>
@@ -16,6 +17,12 @@
 				<%= article.text %> 
 			</p>
 		</div>
+
+		<div class="container-fluid">
+			<button class="btn btn-info" id="edit-artcile" style="float: right; display: inline; margin-left: 2px;"> <%= link_to 'Edit', edit_article_path(article) %> </button>
+			<button class="btn btn-primary" id="view-artcile" style="float: right; display: inline"> <%= link_to 'View', article_path(article) %> </button>
+		</div>
+
 	</div>
 
 	<hr> 
