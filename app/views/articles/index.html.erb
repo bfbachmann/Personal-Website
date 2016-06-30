@@ -2,11 +2,11 @@
 
 <% @articles.each do |article| %>
 
-	<div class="container-fluid">
+	<div class="container-fluid article-info">
 
-		<div class="col-sm-2">
-			<h3> <strong> Title: </strong> </h3>
-			<p> <strong> Text: </strong> </p>
+		<div class="col-sm-2" id="descriptor">
+			<h3> Title: </h3>
+			<p> Text: </p>
 		</div>
 
 		<div class="col-sm-10 content">
@@ -18,9 +18,9 @@
 			</p>
 		</div>
 
-		<div class="container-fluid">
-			<button class="btn btn-info" id="edit-artcile" style="float: right; display: inline; margin-left: 2px;"> <%= link_to 'Edit', edit_article_path(article) %> </button>
-			<button class="btn btn-primary" id="view-artcile" style="float: right; display: inline"> <%= link_to 'View', article_path(article) %> </button>
+		<div>
+			<%= link_to 'View', article_path(article), :class => "btn btn-info article-action"%>
+			<%= link_to 'Edit', edit_article_path(article), :class => "btn btn-primary article-action", :style => "margin-left: 2px;"%>
 		</div>
 
 	</div>

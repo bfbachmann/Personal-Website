@@ -20,8 +20,8 @@
 
 
 h1 {
-    font-family: 'Open Sans';
-    font-size: 48px;
+    font-family: 'Open Sans' !important;
+    font-size: 56px !important;
     font-style: normal;
     font-variant: normal;
     font-weight: 300;
@@ -29,8 +29,8 @@ h1 {
 }
 
 h2 {
-    font-family: 'Open Sans';
-    font-size: 32px;
+    font-family: 'Open Sans' !important;
+    font-size: 40px !important;
     font-style: normal;
     font-variant: normal;
     font-weight: 300;
@@ -38,8 +38,8 @@ h2 {
 }
 
 h3 {
-    font-family: 'Open Sans';
-    font-size: 14px;
+    font-family: 'Open Sans' !important;
+    font-size: 20px !important;
     font-style: normal;
     font-variant: normal;
     font-weight: 300;
@@ -49,7 +49,7 @@ h3 {
 
 p {
     font-family: 'Open Sans';
-    font-size: 14px;
+    font-size: 14px !important;
     font-style: normal;
     font-variant: normal;
     font-weight: 300;
@@ -67,14 +67,6 @@ a {
     background-color: #ffffff !important;
     border-radius: 3px;
     padding: 10px;
-}
-
-.back-button {
-    border-style: solid;
-    background-color: white;
-    border-radius: 3px;
-    border-color: #e6e6e6;
-    color: #a6a6a6;
 }
 
 .home-button {
@@ -115,12 +107,31 @@ body {
     opacity: 0.7 !important;
 }
 
-
-#view-article, #save-article, #edit-article {
+.article-action {
     color: white !important;
     float: right;
 }
 
-button>a {
+#descriptor {
+    padding: 0px !important;
+    display: inline;
+}
+
+#back-button {
+    float: left;
+    display: inline;
+    background-color: #f2f2f2;
+    color: black !important;
+}
+
+button>a, button>a:hover {
     color: white;
+}
+
+.btn {
+    margin: 2px;
+}
+
+.article-info {
+    padding: 0px !important;
 }
