@@ -27,11 +27,11 @@
 					<li><a href="/articles"><span class="glyphicon glyphicon-th-list" aria-hidden="false"></span> &nbsp Show All </a></li>
 				</ul>
 			</li>
-			<li><a href="/about"> About </a></li> 
-			<li><a href="#"> Projects </a></li> 
+			<li> <%= link_to 'About', static_pages_about_path %> </li> 
+			<li> <%= link_to 'Projects', static_pages_projects_path %> </li> 
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#"> <span class="glyphicon glyphicon-envelope" aria-hidden="true"> </span> </a></li> 
+			<li> <%= link_to '', static_pages_contact_path, :class => "glyphicon glyphicon-envelope" %> </li> 
 		</ul>
 	</div>
 </nav>
