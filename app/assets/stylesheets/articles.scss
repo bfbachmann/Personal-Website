@@ -25,5 +25,9 @@ label {
 
 .content {
 	text-align: left;
-	border-left: solid 1px;
+}
+
+#article-body {
+    border-left: solid 1px;
+    border-radius: 0px !important;
 }
