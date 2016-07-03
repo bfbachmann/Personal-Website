@@ -27,7 +27,7 @@
 
 		<div class="nav navbar-center">
 			<%- if user_signed_in? %>
-			  <li> Signed in as <%= current_user.email %> </li>
+			  <li> Signed in as <%= current_user.display_name %> </li>
 			<% end %>
 		</div>
 
@@ -42,8 +42,13 @@
 						<li role="separator" class="divider"></li>
 					<% end %>
 
-					<li> <%= link_to 'Create Account', new_user_registration_path %> </li>
-					<li> <%= link_to 'Edit Account', edit_user_registration_path %> </li>
+					<%- if not user_signed_in? %>
+						<li> <%= link_to 'Create Account', new_user_registration_path %> </li>
+					<% end %>
+
+					<%- if user_signed_in? %>
+						<li> <%= link_to 'Edit Account', edit_user_registration_path %> </li>
+					<% end %>
 
 					<%- if user_signed_in? %>
 						<li role="separator" class="divider"></li>

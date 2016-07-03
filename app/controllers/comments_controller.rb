@@ -1,9 +1,12 @@
 class CommentsController < ApplicationController
 	
+	before_filter :authenticate_user!
+
 	def create
 		@article = Article.find(params[:article_id])
 		@comment = Comment.new(comment_params)
 		@comment.article = @article
+		@comment.commenter = current_user.display_name
 
 		if @comment.save 
 			redirect_to @article

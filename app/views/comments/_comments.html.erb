@@ -2,19 +2,26 @@
 
 	<h4> Comments: <h4>
 
-	<%= bootstrap_form_for([@article, @comment]) do |f| %>
-		<p>
-			<%= f.text_field :commenter, :placeholder => "Maximum: 15 characters" %> 
-		</p>
+	<%- if user_signed_in? %>
 
-		<p>
-			<%= f.text_area :body, :placeholder => "Maximum: 140 characters" %>
-		</p>
+		<%= bootstrap_form_for([@article, @comment]) do |f| %>
+
+			<p>
+				<%= f.text_area :body, :placeholder => "Maximum: 140 characters", :label => "Leave a Comment:" %>
+			</p>
+			
+			<p>
+				<%= f.submit :class => "btn btn-success"%>
+			</p> 
+
+		<% end %>
+
+	<% else %>
+
+		<div class="alert alert-warning">
+			<%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'create account', new_user_registration_path %> to comment.
+		</div>
 		
-		<p>
-			<%= f.submit :class => "btn btn-success"%>
-		</p> 
-
 	<% end %>
 
 	<hr>

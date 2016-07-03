@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
   belongs_to :article
-  validates :commenter, presence: true, length: {minimum: 5, maximum: 15}
+  validates :commenter, presence: true
   validates :body, presence: true, length: {minimum: 1, maximum: 140}
 end
