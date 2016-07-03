@@ -26,6 +26,7 @@ h1 {
     font-variant: normal;
     font-weight: 300;
     line-height: 36.4px;
+    text-align: center;
 }
 
 h2 {
@@ -67,10 +68,7 @@ a {
     background-color: #ffffff !important;
     border-radius: 3px;
     padding: 10px;
-}
-
-.home-button {
-    color: grey;
+    position: relative;
 }
 
 body {
@@ -122,12 +120,19 @@ body {
     float: left;
     background-color: #f2f2f2;
     color: black !important;
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 #plus-button {
     float: right;
     background-color: #f2f2f2;
     color: black !important;
+    display: inline;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 #delete-comment {
