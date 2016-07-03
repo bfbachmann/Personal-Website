@@ -151,3 +151,13 @@ button>a, button>a:hover {
     border-left: solid 1px;
     border-radius: 0px !important;
 }
+
+.navbar-center {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
