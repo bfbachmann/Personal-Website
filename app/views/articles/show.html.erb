@@ -21,36 +21,4 @@
 
 </div>
 
-<hr>
-
-<div class="container-fluid content">
-
-	<h4> Leave a Comment: </h4>
-
-	<%= bootstrap_form_for([@article, @article.comments.build]) do |f| %>
-		<p>
-			<%= f.text_field :commenter %> 
-		</p>
-
-		<p>
-			<%= f.text_area :body %>
-		</p>
-		
-		<p>
-			<%= f.submit :class => "btn btn-success"%>
-		</p> 
-
-	<% end %>
-
-</div>
-
-<div class="container-fluid content">
-
-	<h4> Comments: <h4>
-
-	<% @article.comments.each do |comment| %>
-		<p> <strong> <%= comment.commenter %> </strong> </p>
-		<p> <%= comment.body %> </p>
-	<% end %>
-
-</div>
+<%= render 'comments/comments' %>
