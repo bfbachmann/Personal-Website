@@ -28,7 +28,11 @@
 
 	<% @article.comments.each do |comment| %>
 		<div class="container-fluid">
-			<p> <strong> <%= comment.commenter %> </strong> </p>
+			<% if User.find_by(:id => comment.user_id).try(:admin?) %>
+				<p> <strong> <%= comment.commenter %> </strong> (Admin) </p>
+			<% else %>
+				<p> <strong> <%= comment.commenter %> </strong> </p>
+			<% end %>
 			<p> 
 				<%= comment.body %> 
 				<% if user_signed_in? and comment.user_id == current_user.id %> 

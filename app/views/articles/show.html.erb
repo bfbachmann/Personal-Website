@@ -16,9 +16,11 @@
 			<%= @article.text %> 
 		</p>
 	</div>
-
-	<%= link_to 'Edit', edit_article_path(@article), :class => "btn btn-primary article-action" %>
-
+	<% if current_user.try(:admin?) %>
+		<%= link_to 'Edit', edit_article_path(@article), :class => "btn btn-primary article-action" %>
+	<% else %>
+		<br>
+	<% end %>
 </div>
 
 <%= render 'comments/comments' %>
