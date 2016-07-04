@@ -53,3 +53,5 @@ gem 'autoprefixer-rails'
 
 gem 'devise'
 
+gem "letter_opener", :group => :development
+

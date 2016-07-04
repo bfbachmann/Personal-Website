@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
 		@article = Article.find(params[:article_id])
 		@comment = Comment.new(comment_params)
 		@comment.article = @article
+		@comment.user_id = current_user.id
 		@comment.commenter = current_user.display_name
 
 		if @comment.save 

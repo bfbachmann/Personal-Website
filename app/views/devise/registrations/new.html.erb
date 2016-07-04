@@ -12,6 +12,11 @@
     </div>
 
     <div class="field">
+      <%= f.email_field :email, :placeholder => "example@example.com", :label => "Email (optional)" %>
+      <small class="text-muted"> Only necessary for account password recovery in case of a forgotten password. </small>
+    </div>
+
+    <div class="field">
       <%= f.password_field :password, autocomplete: "off", :placeholder => "Minimum: " + @minimum_password_length.to_s + " characters" %>
     </div>
 
