@@ -27,7 +27,12 @@
 
 		<div class="nav navbar-center">
 			<%- if user_signed_in? %>
-			  <li> Signed in as <%= current_user.display_name %> </li>
+			  <li> Signed in as <strong> <%= current_user.display_name %>
+				<% if current_user.try(:admin?) %>
+					(Admin)
+				<% end %>
+				</strong>
+			  </li>
 			<% end %>
 		</div>
 

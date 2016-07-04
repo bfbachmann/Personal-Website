@@ -5,43 +5,67 @@ class ArticlesController < ApplicationController
 	end
 
 	def new
-		@article = Article.new
+		if can? :create, Article
+			@article = Article.new
+		else
+			redirect_to welcome_index_path
+		end
 	end
 
 	def create
-		@article = Article.new(article_params)
+		if can? :create, Article
+			@article = Article.new(article_params)
 
-		if @article.save 
-			redirect_to @article
+			if @article.save 
+				redirect_to @article
+			else
+				render 'new'
+			end
 		else
-			render 'new'
+			redirect_to welcome_index_path
 		end
 	end
 
 	def edit 
-		@article = Article.find(params[:id])
+		if can? :edit, Article
+			@article = Article.find(params[:id])
+		else
+			redirect_to welcome_index_path
+		end
 	end
 
 	def show
-		@article = Article.find(params[:id])
-		@comment = Comment.new(article_id: @article.id)
+		if can? :show, Article
+			@article = Article.find(params[:id])
+			@comment = Comment.new(article_id: @article.id)
+		else 
+			redirect_to welcome_index_path
+		end
 	end
 
 	def update
-		@article = Article.find(params[:id])
+		if can? :update, Article
+			@article = Article.find(params[:id])
 
-		if @article.update(article_params)
-			redirect_to @article
+			if @article.update(article_params)
+				redirect_to @article
+			else
+				render 'edit'
+			end
 		else
-			render 'edit'
+			redirect_to welcome_index_path
 		end
 	end
 
 	def destroy
-		@article = Article.find(params[:id])
-		@article.destroy
+		if can? :destroy, Article
+			@article = Article.find(params[:id])
+			@article.destroy
 
-		redirect_to articles_path
+			redirect_to articles_path
+		else 
+			redirect_to welcome_index_path
+		end
 	end
 
 	private
