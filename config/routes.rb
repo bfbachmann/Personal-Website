@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'contact_admin_message/new'
-
-  get 'contact_admin_message/create'
-
   devise_for :users
   
   get 'static_pages/about'

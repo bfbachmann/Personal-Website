@@ -57,3 +57,5 @@ gem "letter_opener", :group => :development
 
 gem 'cancan'
 
+gem 'figaro'
+
