@@ -1,0 +1,18 @@
+A user contacted you! 
+
+User Details:
+=============
+
+<% if user_signed_in %>
+Display Name: <%= @user.display_name %>
+Username: <%= @user.username %>
+Email: <% @user.email %>
+<% else %>
+User was not signed in.
+Provided Email: <%= @email %>
+<% end %>
+
+User Message:
+=============
+
+<% @message %>

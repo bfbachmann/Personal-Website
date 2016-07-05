@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+
+    <h1> A user contacted you! </h1>
+
+    <h3> User Details: </h3>
+    <% if user_signed_in %>
+      <p> Display Name: <%= @user.display_name %> </p>
+      <p> Username: <%= @user.username %> </p>
+      <p> Email: <% @user.email %> </p>
+    <% else %>
+      <p> <strong> User was not signed in. </strong> <p>
+      <p> Provided Email: <%= @email %> </p>
+    <% end %>
+
+    <h3> User Message: </h3>
+    <% @message %>
+
+  </body>
+</html>
