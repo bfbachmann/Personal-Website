@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  has_many :messages
   validates :username, presence: true, length: { minimum: 4, maximum: 20 }, uniqueness: true
   validates :display_name, presence: true, length: { minimum: 4, maximum: 20 }, uniqueness: true
 

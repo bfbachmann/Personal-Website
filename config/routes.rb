@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
   get 'static_pages/projects'
 
-  get 'static_pages/contact'
-
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -19,6 +17,8 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+
+  resources :messages
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

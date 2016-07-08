@@ -1,0 +1,48 @@
+<h1> Contact </h1>
+
+<% if user_signed_in? %>
+
+	<div class="form"> 
+
+		<% if @message.errors.any? %>
+			<div id="error-message" class="container-fluid"> 
+				<strong> <%= pluralize(@message.errors.count, "error") %> encountered: Failed to create message. </strong> 
+				<ul>
+					<% @message.errors.full_messages.each do |msg| %>
+						<li> <%= msg %> </li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+
+		<%= bootstrap_form_for @message do |f| %>
+
+			<% if @user.email.nil? or @user.email == "" %>
+				<p>
+					<%= f.email_field :user_email, placeholder: "exampleman@example.com" %>
+				</p>
+			<% end %>
+
+			<p>
+				<%= f.text_field :subject %>
+			</p>
+
+			<p>
+				<%= f.text_area :body, :rows => "20" %>
+			</p>
+
+			<p>
+				<%= f.submit :class => "btn btn-success" %>
+			</p>
+
+		<% end %>
+
+	</div>
+
+<% else %>
+
+	<div class="alert alert-warning">
+		<%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'create account', new_user_registration_path %> to leave a message.
+	</div>
+
+<% end %>
