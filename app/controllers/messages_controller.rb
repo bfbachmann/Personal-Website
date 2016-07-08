@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
 
   def create
   	@message = Message.new(message_params)
-  	# @message.user = current_user
+  	@message.user = current_user
 	@message.user_id = current_user.id
 
 	if @message.user_email.nil?
@@ -16,6 +16,7 @@ class MessagesController < ApplicationController
 
   	if @message.save
   		# UserMailer.send_email_to_admin(current_user.email).deliver
+  		redirect_to welcome_index_path
   	else
   		# redirect_to new_message_path(@message)
   	end
