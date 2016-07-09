@@ -8,7 +8,7 @@ class Ability
       if user.admin?
         can :manage, :all
       elsif user.persisted?
-        can [:create, :read], Message
+        can :create, Message
         can :create, Comment
         can [:update, :destroy], Comment, :user_id => user.id
       end

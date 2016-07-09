@@ -16,6 +16,7 @@
 		<div class="col-sm-11 content article-body">
 			<h3>
 				<%= article.title %> 
+				<small class="timestamp"> <%= article.updated_at.to_date.strftime("%v") %> </small>
 			</h3>
 			<p> 
 				<%= article.text %> 

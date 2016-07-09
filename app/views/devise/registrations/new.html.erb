@@ -1,5 +1,7 @@
 <h2> Create Account </h2>
 
+<%= flash[:recaptcha_error] %>
+
 <div class="form">
   <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
@@ -23,6 +25,8 @@
     <div class="field">
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
+
+    <%= recaptcha_tags %>
 
     <div class="actions">
       <%= f.submit "Sign up", :class => "btn btn-success" %>
