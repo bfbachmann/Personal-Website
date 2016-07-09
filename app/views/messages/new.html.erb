@@ -1,5 +1,7 @@
 <h1> Contact </h1>
 
+<em> Use this form to contact me about whatever you would like. Please keep it appropriate, though. </em>
+
 <% if user_signed_in? %>
 
 	<div class="form"> 
@@ -8,8 +10,8 @@
 			<div id="error-message" class="container-fluid"> 
 				<strong> <%= pluralize(@message.errors.count, "error") %> encountered: Failed to create message. </strong> 
 				<ul>
-					<% @message.errors.full_messages.each do |msg| %>
-						<li> <%= msg %> </li>
+					<% @message.errors.full_messages.each do |message| %>
+						<li> <%= message %> </li>
 					<% end %>
 				</ul>
 			</div>
@@ -19,7 +21,7 @@
 
 			<% if @user.email.nil? or @user.email == "" %>
 				<p>
-					<%= f.email_field :user_email, placeholder: "exampleman@example.com" %>
+					<%= f.email_field :user_email, placeholder: "exampleman@example.com", :label => "Your Email" %>
 				</p>
 			<% end %>
 

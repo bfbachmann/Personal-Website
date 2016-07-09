@@ -1,8 +1,9 @@
 class UserMailer < ApplicationMailer
 
-  def send_email_to_admin(user)
+  def send_email_to_admin(user, message)
   	@user = user
-  	mail(to: User.where(admin: true).email, subject: 'Blog user contacted you')
+  	@message = message
+  	mail(to: User.find_by(:admin => true).email, subject: @message.subject)
   end
 
 end

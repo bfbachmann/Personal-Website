@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
 	end
 
   	if @message.save
-  		UserMailer.send_email_to_admin(current_user.email).deliver
+  		UserMailer.send_email_to_admin(current_user, @message).deliver_now
   		redirect_to welcome_index_path
   	else
   		redirect_to new_message_path(@message)

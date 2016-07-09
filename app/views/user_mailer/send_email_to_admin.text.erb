@@ -1,0 +1,18 @@
+A user contacted you! 
+
+User Details:
+=============
+
+<% if @user.nil? %>
+	User was not signed in.
+	Provided Email: <%= @message.user_email %>
+<% else %>
+	Display Name: <%= @user.display_name %>
+	Username: <%= @user.username %>
+	Email: <%= @message.user_email %>
+<% end %>
+
+User Message:
+=============
+
+<%= @message.body %>
