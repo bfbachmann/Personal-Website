@@ -21,6 +21,8 @@ class MessagesController < ApplicationController
 	  	else
 	  		redirect_to new_message_path(@message)
 	  	end
+	else
+		redirect_to welcome_index_path
 	end
   end
 

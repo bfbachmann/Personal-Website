@@ -34,3 +34,27 @@ textarea {
 .timestamp {
     float: right;
 }
+
+.article-info {
+    padding: 0px !important;
+}
+
+.article-body {
+    border-left: solid 1px;
+    border-radius: 0px !important;
+    word-wrap: break-word;
+}
+
+.full-article {
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.full-article>h3 {
+    font-size: 24px !important;
+    margin-top: 10px !important;
+}
+
+.full-article>p {
+    font-size: 16px !important;
+}

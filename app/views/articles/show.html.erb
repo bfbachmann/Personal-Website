@@ -2,26 +2,20 @@
 
 <h2> View Article </h2>
 
-<div class="col-sm-1 descriptor">
-	<h3> Title: </h3>
-	<p> Text: </p>
+<div class="container-fluid full-article">
+	<h3>
+		<%= @article.title %> 
+		<small class="timestamp"> <%= @article.updated_at.to_date.strftime("%v") %> </small>
+	</h3>
+	<br>
+	<p> 
+		<%= @article.text %> 
+	</p>
 </div>
-
-<div class="col-sm-11 content">
-	<div class="container-fluid article-body">
-		<h3>
-			<%= @article.title %> 
-			<small class="timestamp"> <%= @article.updated_at.to_date.strftime("%v") %> </small>
-		</h3>
-		<p> 
-			<%= @article.text %> 
-		</p>
-	</div>
-	<% if current_user.try(:admin?) %>
-		<%= link_to 'Edit', edit_article_path(@article), :class => "btn btn-primary article-action" %>
-	<% else %>
-		<br>
-	<% end %>
-</div>
+<% if current_user.try(:admin?) %>
+	<%= link_to 'Edit', edit_article_path(@article), :class => "btn btn-primary article-action" %>
+<% else %>
+	<br>
+<% end %>
 
 <%= render 'comments/comments' %>
