@@ -60,3 +60,5 @@ gem 'cancan'
 gem 'figaro'
 
 gem 'recaptcha', :require => 'recaptcha/rails'
+
+gem 'tinymce-rails'

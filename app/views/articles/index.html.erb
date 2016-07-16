@@ -19,7 +19,7 @@
 				<small class="timestamp"> <%= article.updated_at.to_date.strftime("%v") %> </small>
 			</h3>
 			<p> 
-				<%= article.text %> 
+				<%= raw(article.text) %> 
 			</p>
 		</div>
 

@@ -11,14 +11,13 @@
 		</div>
 	<% end %>
 
-
 	<%= bootstrap_form_for @article do |f| %>
 		<p>
 			<%= f.text_field :title, placeholder: "Minimum: 2 characters" %>
 		</p>
 
 		<p>
-			<%= f.text_area :text, placeholder: "Minimum: 140 characters", :rows => "20" %>
+			<%= f.text_area :text, :class => "tinymce", :rows => 40, placeholder: "Minimum: 140 characters" %>
 		</p>
 
 		<p>
@@ -26,5 +25,7 @@
 			<%= yield :delete_button %>
 		</p>
 	<% end %>
+
+	<%= tinymce %>
 
 </div>
