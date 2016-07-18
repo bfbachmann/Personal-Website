@@ -62,3 +62,5 @@ gem 'figaro'
 gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'tinymce-rails'
+
+gem 'rails_serve_static_assets'
