@@ -1,5 +1,5 @@
 var audioContext, audioBuffer;
-var url = '/audios/FLEX ZONE TYZNCHECKS VISION II.mp3';
+var url = '/audios/Panda.mp3';
 var audioSource;
 var playing;
 var analyzer, audioData;

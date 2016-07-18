@@ -6,6 +6,14 @@
 
 <% end %>
 
+<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+<script>
+  SC.initialize({
+    client_id: ENV['soundcloud_client_id'],
+    redirect_uri: 'http://example.com/callback'
+  });
+</script>
+
 <div class="visualizer">
 
 </div>
