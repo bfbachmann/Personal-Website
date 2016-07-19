@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'static_pages/projects'
 
+  get 'static_pages/visualizer'
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

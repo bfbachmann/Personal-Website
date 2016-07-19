@@ -4,8 +4,6 @@ var audioSource;
 var playing;
 var analyzer, audioData;
 
-$(initAudio);
-
 // Initialize the audio context
 function initAudio() {
 
