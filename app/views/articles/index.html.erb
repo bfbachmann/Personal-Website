@@ -14,17 +14,10 @@
 
 		<div class="content">
 			<h3>
-				<%= article.title %> 
-				<small class="timestamp"> <%= article.updated_at.to_date.strftime("%v") %> </small>
+				<%= link_to article.title, article_path(article) %>
+				<small class="timestamp"> <%= article.updated_at.to_date.strftime("%v") %> | <%= article.comments.count %> comments  </small>
 			</h3>
 			<%= raw(article.text) %>
-		</div>
-
-		<div>
-			<%= link_to 'View', article_path(article), :class => "btn btn-info article-action"%>
-			<% if current_user.try(:admin?) %>
-				<%= link_to 'Edit', edit_article_path(article), :class => "btn btn-primary article-action", :style => "margin-left: 2px;"%>
-			<% end %>	
 		</div>
 
 	</div>
