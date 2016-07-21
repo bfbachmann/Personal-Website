@@ -1,16 +1,5 @@
 <div class="form">
 
-	<% if @article.errors.any? %>
-		<div id="error-message" class="container-fluid"> 
-			<strong> <%= pluralize(@article.errors.count, "error") %> encountered: Failed to create article. </strong> 
-			<ul>
-				<% @article.errors.full_messages.each do |message| %>
-					<li> <%= message %> </li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-
 	<%= bootstrap_form_for @article do |f| %>
 		<p>
 			<%= f.text_field :title, placeholder: "Minimum: 2 characters" %>

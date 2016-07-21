@@ -2,3 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.box {
+    height: 200px;
+    border-style: solid;
+    border-color: #f2f2f2;
+    margin: 5px;
+    border-radius: 5px;
+    float: none !important;
+    display: inline-block;
+}

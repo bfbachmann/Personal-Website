@@ -7,7 +7,11 @@ class StaticPagesController < ApplicationController
   end
 
   def visualizer
-  	render layout: "visualizer"
+  	render layout: "three_demo"
+  end
+
+  def particles
+  	render layout: "three_demo"
   end
 
 end

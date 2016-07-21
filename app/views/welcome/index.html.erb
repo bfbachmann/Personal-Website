@@ -3,4 +3,27 @@
 	<h1> Welcome </h1>
 	<h3> To my Rails Blog </h3>
 
+	<div class="row">
+		<div class="col-sm-3 box container">
+			<% @articles1to3.each do |article| %>
+				<% if article.nil? then break end %>
+				<p> <%= article.title %> </p>
+			<% end %>
+		</div>
+
+		<div class="col-sm-3 box container">
+			<% @articles4to6.each do |article| %>
+				<% if article.nil? then break end %>
+				<p> <%= article.title %> </p>
+			<% end %>
+		</div>
+
+		<div class="col-sm-3 box container">
+			<% @articles7to9.each do |article| %>
+				<% if article.nil? then break end %>
+				<p> <%= article.title %> </p>
+			<% end %>
+		</div>
+	</div>
+
 </div>
