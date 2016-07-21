@@ -25,7 +25,7 @@ function initVisualizer() {
     scene = new THREE.Scene();
     
     renderer = new THREE.WebGLRenderer( {alpha: true });
-    renderer.setSize( window.innerWidth/2, window.innerHeight/2);
+    renderer.setSize( window.innerWidth, window.innerHeight);
     renderer.setClearColor( 0x000000 );
     document.body.appendChild( renderer.domElement );
     

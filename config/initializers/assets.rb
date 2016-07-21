@@ -11,3 +11,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w( TrackballControls.js )
+Rails.application.config.assets.precompile += %w( Visualizer.js )
+Rails.application.config.assets.precompile += %w( Audio_analyser.js )

@@ -4,10 +4,10 @@ var audioSource;
 var playing;
 var analyzer, audioData;
 
-// Initialize the audio context
-function initAudioVisualizer() {
 
-	// Initialize the visualizer
+// Initialize the audio context
+function initAudio() {
+
 	initVisualizer();
 
 	try {
@@ -41,6 +41,7 @@ function analyzeAudio() {
 
 	audioData = new Uint8Array(analyzer.frequencyBinCount);
 	analyzer.getByteFrequencyData(audioData);
+	detectBeats(audioData);
 }
 
 
@@ -115,4 +116,15 @@ function toggleAudio() {
 
 function isPlaying() {
 	return playing;
+}
+
+
+function detectBeats(audioData) {
+
+	for (var i = 0; i < audioData.length/2; i++) {
+		if (audioData[i] > 250) {
+			console.log('beat');
+			return;
+		}
+	}
 }

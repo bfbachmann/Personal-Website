@@ -7,6 +7,7 @@ class StaticPagesController < ApplicationController
   end
 
   def visualizer
+  	render layout: "visualizer"
   end
 
 end
