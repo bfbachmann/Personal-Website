@@ -19,7 +19,8 @@ class MessagesController < ApplicationController
 	  		UserMailer.send_email_to_admin(current_user, @message).deliver
 	  		redirect_to welcome_index_path
 	  	else
-	  		redirect_to new_message_path(@message)
+	  		@user = current_user
+	  		render 'new'
 	  	end
 	else
 		redirect_to welcome_index_path

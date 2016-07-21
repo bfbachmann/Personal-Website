@@ -66,3 +66,9 @@ gem 'tinymce-rails'
 gem 'rails_serve_static_assets'
 
 gem 'jquery-turbolinks'
+
+group :development do
+  gem "better_errors"
+end
+
+

@@ -5,7 +5,10 @@ var playing;
 var analyzer, audioData;
 
 // Initialize the audio context
-function initAudio() {
+function initAudioVisualizer() {
+
+	// Initialize the visualizer
+	initVisualizer();
 
 	try {
 		window.AudioContext = window.AudioContext || window.webkitAudioContext;

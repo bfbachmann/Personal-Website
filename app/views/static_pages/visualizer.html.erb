@@ -1,15 +1,6 @@
-<%= content_for :trackball_controls do %>
-
-	<%= javascript_include_tag "TrackballControls.js" %>
-
-<% end %>
-
-
-<div class="visualizer">
-
-</div>
 
 <script type="text/javascript">
-	$(initAudio);
-	$(initVisualizer);
+	$(document).ready( function() {
+		initAudioVisualizer();
+	});
 </script>

@@ -15,7 +15,8 @@ var colors = [
 function initVisualizer() {
 
     // Create element to hold the window
-    container = $(".visualizer");
+    container = document.createElement( 'div' );
+    document.body.appendChild( container );
     
     // Initialize the camera, scene, and renderer
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000 );

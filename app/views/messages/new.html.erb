@@ -6,17 +6,6 @@
 
 	<div class="form"> 
 
-		<% if @message.errors.any? %>
-			<div id="error-message" class="container-fluid"> 
-				<strong> <%= pluralize(@message.errors.count, "error") %> encountered: Failed to create message. </strong> 
-				<ul>
-					<% @message.errors.full_messages.each do |message| %>
-						<li> <%= message %> </li>
-					<% end %>
-				</ul>
-			</div>
-		<% end %>
-
 		<%= bootstrap_form_for @message do |f| %>
 
 			<% if @user.email.nil? or @user.email == "" %>

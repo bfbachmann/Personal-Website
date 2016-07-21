@@ -6,4 +6,7 @@ class StaticPagesController < ApplicationController
   def projects
   end
 
+  def visualizer
+  end
+
 end
