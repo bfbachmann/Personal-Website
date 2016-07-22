@@ -13,7 +13,7 @@ class Ability
         can [:update, :destroy], Comment, :user_id => user.id
       end
       
-      can :read, :all
+      can :read, [Message, Article, Comment]
       
     #
     # The first argument to `can` is the action you are giving the user 

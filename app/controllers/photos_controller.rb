@@ -1,27 +1,43 @@
 class PhotosController < ApplicationController
   def index
-    @photos = Photo.order('created_at')
-    render layout: 'layouts/welcome'
+    if can? :read, Photo
+      @photos = Photo.order('created_at')
+      render layout: 'layouts/welcome'
+    else 
+      redirect_to root_path
+    end
   end
 
   def new
-    @photo = Photo.new
+    if can? :create, Photo
+      @photo = Photo.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
-    @photo = Photo.new(photo_params)
-    if @photo.save
-      redirect_to photos_path
+    if can? :create, Photo
+      @photo = Photo.new(photo_params)
+      if @photo.save
+        redirect_to photos_path
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      redirect_to root_path
     end
   end
 
   def destroy
-    @photo = Photo.find(params[:id])
-    @photo.destroy
+    if can? :destroy, Photo
+      @photo = Photo.find(params[:id])
+      @photo.destroy
 
-    redirect_to photos_path
+      redirect_to photos_path
+    else
+      redirect_to root_path
+    end
   end
 
   private
