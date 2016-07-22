@@ -22,3 +22,6 @@
 
 # Ignore audio files
 *.mp3
+
+# Ignore files saved by Paperclip
+public/system/*
