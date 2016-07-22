@@ -6,7 +6,7 @@ a.glyphicon.glyphicon-trash  {
 	color: red;
 	position: absolute;
     top: 2px;
-    right: 2px;
+    right: 23px;
 }
 
 .trash-icon {
@@ -17,10 +17,15 @@ a.glyphicon.glyphicon-trash  {
 }
 
 .photo-area {
-	width: 290px;
+	width: 100%;
 	position: relative;
+    overflow: auto;
 }
 
 .image-box {
 	position: relative;
+}
+
+.images-header {
+    position: relative;
 }

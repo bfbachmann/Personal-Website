@@ -25,15 +25,4 @@
 		<% end %>
 	</div>
 
-	<div class="row">
-		<% @articles7to9.each do |article| %>
-				<% if article.nil? then break end %>
-				<%= link_to article_path(article) do %>
-					<div class="col-sm-4 box">
-						<p> <%= article.title %> </p>
-					</div>
-				<% end %>
-		<% end %>
-	</div>
-
 </div>
