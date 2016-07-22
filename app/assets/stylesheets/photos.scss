@@ -45,7 +45,12 @@ a.glyphicon.glyphicon-trash  {
     position: relative;
 }
 
-.add-image {
-    top: 0 !important;
-    right: 20px !important;
+#add-image-button {
+    float: right;
+    background-color: #f2f2f2;
+    color: green !important;
+    display: inline;
+    position: absolute;
+    top: 2px;
+    right: 2px;
 }

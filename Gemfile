@@ -72,3 +72,5 @@ group :development do
 end
 
 gem "paperclip", "~> 4.2"
+
+gem 'feedjira'
