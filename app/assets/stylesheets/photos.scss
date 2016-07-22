@@ -5,11 +5,22 @@
 a.glyphicon.glyphicon-trash  {
 	color: red;
 	position: absolute;
-    top: 12px;
-    right: 20px;
+    top: 2px;
+    right: 2px;
+}
+
+.trash-icon {
+    float: right;
+    background-color: #f2f2f2;
+    color: red !important;
+    display: inline;
 }
 
 .photo-area {
 	width: 290px;
+	position: relative;
+}
+
+.image-box {
 	position: relative;
 }
