@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "devise/registrations" }
 
-  resources :photos, only: [:new, :create, :index, :destroy]
+  resources :photos, only: [:new, :create, :index, :destroy, :update]
   
   get 'static_pages/about'
 

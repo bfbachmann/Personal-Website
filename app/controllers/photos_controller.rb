@@ -40,6 +40,24 @@ class PhotosController < ApplicationController
     end
   end
 
+  def update
+    if can? :update, Photo
+      @article = Article.find(params[:article_id])
+      @photo = Photo.find(params[:id])
+
+      @article.photo_uid = @photo.id
+      @photo.article_id = @article.id
+
+      if @article.save and @photo.save
+        redirect_to welcome_index_path
+      else
+        render 'articles/edit'
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def photo_params

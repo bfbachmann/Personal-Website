@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
 	def new
 		if can? :create, Article
 			@article = Article.new
-		    @photo = Photo.new
+		    @photos = Photo.all
 		else
 			redirect_to welcome_index_path
 		end
@@ -18,9 +18,9 @@ class ArticlesController < ApplicationController
 	def create
 		if can? :create, Article
 			@article = Article.new(article_params)
-		    @photo = Photo.new(photo_params)
+		    @photos = Photo.all
     
-			if @article.save and @photo.save 
+			if @article.save 
 				redirect_to @article
 			else
 				render 'new'
@@ -33,6 +33,7 @@ class ArticlesController < ApplicationController
 	def edit 
 		if can? :edit, Article
 			@article = Article.find(params[:id])
+			@photos = Photo.all
 		else
 			redirect_to welcome_index_path
 		end

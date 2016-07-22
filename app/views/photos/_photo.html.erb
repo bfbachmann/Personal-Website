@@ -1,8 +1,30 @@
-<div class="media">
-  <div class="media-left">
-    <%= link_to image_tag(photo.image.url, class: 'media-object'), photo.image.url, target: '_blank' %>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading"><%= photo.title %></h4>
-  </div>
+<div class="content">
+	<h4>Attach Image</h4>
+</div>
+
+<div class="center container-fluid">
+	<% @photos.each_with_index do |photo, index| %>
+
+		<% if index % 3 == 0 %>
+			<div class="row">
+		<% end %>
+
+		<div class="col-sm-4">
+			<div class="container-fluid center photo-area">
+				<p> 
+					<%= photo.title %>
+				</p>
+
+				<div class="image-box"> 
+					<%= link_to '', photo_path(photo, :article_id => @article.id), :controller => :photos, :action => :update, :method => :patch, data: { confirm: 'Are you sure you want to attatch this image?' }, :class => 'glyphicon glyphicon-plus btn btn-default add-image-btn' %>
+					<%= link_to image_tag(photo.image, :size => "130x90"), photo.image.url, target: '_blank' %> 
+				</div>
+			</div>
+		</div>
+
+		<% if index % 3 == 2 or index == @photos.count - 1 %>
+			</div>
+		<% end %>
+
+	<% end %>
 </div>
