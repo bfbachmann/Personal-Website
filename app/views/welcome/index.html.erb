@@ -3,26 +3,36 @@
 	<h1> Welcome </h1>
 	<h3> To my Rails Blog </h3>
 
-	<div>
+	<div class="row">
 		<% @articles1to3.each do |article| %>
 				<% if article.nil? then break end %>
-				<div class="col-sm-3 box">
-					<p> <%= article.title %> </p>
-				</div>
+				<%= link_to article_path(article) do %>
+					<div class="col-sm-4 box" style="background-image: image-url('https://drive.google.com/file/d/0B4Q93Xb0ugWMSE03MXZJeURBRkE/view?usp=sharing');">
+						<p> <%= article.title %> </p>
+					</div>
+				<% end %>
 		<% end %>
+	</div>
 
+	<div class="row">
 		<% @articles4to6.each do |article| %>
 				<% if article.nil? then break end %>
-				<div class="col-sm-3 box">
-					<p> <%= article.title %> </p>
-				</div>
+				<%= link_to article_path(article) do %>
+					<div class="col-sm-4 box">
+						<p> <%= article.title %> </p>
+					</div>
+				<% end %>
 		<% end %>
+	</div>
 
+	<div class="row">
 		<% @articles7to9.each do |article| %>
 				<% if article.nil? then break end %>
-				<div class="col-sm-3 box">
-					<p> <%= article.title %> </p>
-				</div>
+				<%= link_to article_path(article) do %>
+					<div class="col-sm-4 box">
+						<p> <%= article.title %> </p>
+					</div>
+				<% end %>
 		<% end %>
 	</div>
 

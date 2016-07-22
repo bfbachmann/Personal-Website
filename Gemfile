@@ -71,4 +71,4 @@ group :development do
   gem "better_errors"
 end
 
-
+gem "paperclip", "~> 4.2"

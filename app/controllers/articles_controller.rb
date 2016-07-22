@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
 	def new
 		if can? :create, Article
 			@article = Article.new
+		    @photo = Photo.new
 		else
 			redirect_to welcome_index_path
 		end
@@ -17,8 +18,9 @@ class ArticlesController < ApplicationController
 	def create
 		if can? :create, Article
 			@article = Article.new(article_params)
-
-			if @article.save 
+		    @photo = Photo.new(photo_params)
+    
+			if @article.save and @photo.save 
 				redirect_to @article
 			else
 				render 'new'
@@ -74,6 +76,10 @@ class ArticlesController < ApplicationController
 
 	def article_params
 		params.require(:article).permit(:title, :text)
+	end
+
+	def photo_params
+		params.require(:photo).permit(:image, :title)
 	end
 
 end

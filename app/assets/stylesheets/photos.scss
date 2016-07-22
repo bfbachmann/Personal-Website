@@ -1,0 +1,15 @@
+// Place all the styles related to the Photos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+a.glyphicon.glyphicon-trash  {
+	color: red;
+	position: absolute;
+    top: 12px;
+    right: 20px;
+}
+
+.photo-area {
+	width: 290px;
+	position: relative;
+}

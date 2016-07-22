@@ -1,0 +1,17 @@
+<h1>Upload Photo</h1>
+
+<div class="content">
+  <%= bootstrap_form_for @photo do |f| %>
+
+    <p>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.file_field :image %>
+    </p>
+
+    <%= f.submit 'Upload', class: 'btn btn-success' %>
+
+  <% end %>
+</div>
