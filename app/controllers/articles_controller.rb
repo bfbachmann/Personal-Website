@@ -34,6 +34,7 @@ class ArticlesController < ApplicationController
 		if can? :edit, Article
 			@article = Article.find(params[:id])
 			@photos = Photo.all
+			@photo = Photo.find_by(:id => @article.photo_uid)
 		else
 			redirect_to welcome_index_path
 		end
@@ -77,10 +78,6 @@ class ArticlesController < ApplicationController
 
 	def article_params
 		params.require(:article).permit(:title, :text)
-	end
-
-	def photo_params
-		params.require(:photo).permit(:image, :title)
 	end
 
 end

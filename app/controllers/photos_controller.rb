@@ -51,6 +51,7 @@ class PhotosController < ApplicationController
       if @article.save and @photo.save
         redirect_to welcome_index_path
       else
+        @photos = Photo.all
         render 'articles/edit'
       end
     else

@@ -6,6 +6,14 @@
 	<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure you want to delete this article?' }, :class => 'btn btn-danger article-action' %>
 <% end %>
 
+<hr>
+<div class="content">
+	<% if not @photo.nil? %>
+		<h4>Currently Attached Image</h4>
+		<div class="center"><%= image_tag(@photo.image, :size => "260x180") %></div>
+	<% end %>
+</div>
+
 <%= render 'photos/photo' %>
-<br>
-<%= render 'form' %>
+<hr><br>
+<%= render 'articles/form' %>

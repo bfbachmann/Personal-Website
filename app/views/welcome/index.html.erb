@@ -3,26 +3,23 @@
 	<h1> Welcome </h1>
 	<h3> To my Rails Blog </h3>
 
-	<div class="row">
-		<% @articles1to3.each do |article| %>
-				<% if article.nil? then break end %>
-				<%= link_to article_path(article) do %>
-					<div class="col-sm-4 box" style="background-image: image-url('https://drive.google.com/file/d/0B4Q93Xb0ugWMSE03MXZJeURBRkE/view?usp=sharing');">
-						<p> <%= article.title %> </p>
-					</div>
-				<% end %>
-		<% end %>
-	</div>
+	<% [@articles1to3, @articles4to6].each do |articles| %>
+		<div class="row">
+			<% articles.each do |article| %>
+					<% if article.nil? then break end %>
 
-	<div class="row">
-		<% @articles4to6.each do |article| %>
-				<% if article.nil? then break end %>
-				<%= link_to article_path(article) do %>
-					<div class="col-sm-4 box">
-						<p> <%= article.title %> </p>
-					</div>
-				<% end %>
-		<% end %>
-	</div>
+					<% if not article.photo_uid.nil? %>
+						<%= link_to article_path(article) do %>
+							<div class="col-sm-4 box">
+								<div class="box-header">
+									<h4> <%= article.title %> </h4>
+								</div>
+								<%= image_tag(@photos.find_by(:id => article.photo_uid).image, :size => "300x150") %> 
+							</div>
+						<% end %>
+					<% end %>
+			<% end %>
+		</div>
+	<% end %>
 
 </div>
