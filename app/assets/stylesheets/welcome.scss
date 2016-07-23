@@ -33,6 +33,8 @@
     font-weight: 300;
     font-size: 16px;
     text-align: center;
+    bottom: 0;
+    position: absolute;
 }
 
 .box:hover {
@@ -57,4 +59,9 @@
     font-size: 14px !important;
     padding: 5px;
     margin-bottom: 10px;
+}
+
+.details>div.commits>ul {
+    padding: 0;
+    margin: 0;
 }

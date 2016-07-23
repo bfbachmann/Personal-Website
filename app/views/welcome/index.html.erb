@@ -3,7 +3,7 @@
 	<h2>Articles</h2>
 
 	<% [@articles1to3, @articles4to6].each do |articles| %>
-		<div class="row">
+		<div class="row center">
 			<% articles.each do |article| %>
 					<% if article.nil? then break end %>
 
@@ -20,6 +20,8 @@
 			<% end %>
 		</div>
 	<% end %>
+
+	<hr>
 
 	<div class="col-sm-6 container-fluid">
 		<h2 class="center">Github</h2>

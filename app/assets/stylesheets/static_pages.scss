@@ -33,3 +33,33 @@ img {
 img.resume:hover {
 	-webkit-filter: brightness(95%);
 }
+
+.proj-description {
+	padding-left: 10px !important; 
+}
+
+.game-image {
+	width: 100%;
+	margin-bottom: 10px;
+	background-size: cover;
+}
+
+.proj-link {
+	font-size: 15px !important;
+	line-height: 15.4px;
+	bottom: 5px;
+	position: absolute;
+}
+
+.proj-head {
+	vertical-align: top;
+	position: relative;
+}
+
+.ad-game {
+	margin: 5px;
+}
+
+.visualizer-col {
+	padding-left: 0 !important;
+}
