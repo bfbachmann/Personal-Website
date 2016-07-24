@@ -130,7 +130,7 @@ body {
     display: inline;
     position: absolute;
     top: 20px;
-    right: 15px;
+    right: 20px;
 }
 
 #delete-comment {
@@ -181,4 +181,8 @@ button>a, button>a:hover {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+ul.dropdown-menu>li>a {
+    color: black !important;
 }
