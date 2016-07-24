@@ -27,7 +27,7 @@
 	<hr>
 
 	<% @article.comments.each do |comment| %>
-		<div class="container-fluid article-body">
+		<div class="container-fluid comment-section">
 			<% if User.find_by(:id => comment.user_id).try(:admin?) %>
 				<p> <strong> <%= comment.commenter %> </strong> (Admin) <small class="timestamp"> <%= @article.updated_at.to_date.strftime("%v") %> </small></p>
 			<% else %>

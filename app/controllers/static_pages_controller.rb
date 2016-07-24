@@ -4,7 +4,6 @@ class StaticPagesController < ApplicationController
   end
 
   def projects
-    render layout: "projects"
   end
 
   def visualizer

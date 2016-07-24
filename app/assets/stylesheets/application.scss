@@ -53,7 +53,7 @@ h3 {
     font-family: Helvetica, Arial, sans-serif !important;
     font-style: normal;
     font-variant: normal;
-    /*font-weight: 300;*/
+    color: #f2f2f2 !important;
     line-height: 20px;
 }
 
@@ -62,18 +62,17 @@ a {
 }
 
 .center-column {
-    width: 800px;
+    width: 850px;
     text-align: center;
     margin: 0 auto;
     background-color: #ffffff !important;
     border-radius: 3px;
-    padding: 10px;
+    padding: 10px 30px 10px 30px !important;
     position: relative;
 }
 
 body {
-    background-image: image-url('blog-background.jpg');
-    background-size: cover;
+    background: linear-gradient(to right, #062f4f, #264f6f, #062f4f);
     background-attachment: fixed;
     padding-top: 50px;
     text-align: center;
@@ -93,18 +92,16 @@ body {
     border-radius: 0px !important;
 }
 
-.navbar-custom {
-    background-color: #6a2790;
-    color: white;
+.navbar-inverse {
+    color: #f2f2f2;
 }
 
 .navbar a {
-    color: white;
+    color: #f2f2f2 !important;
 }
 
 .nav>li>a:hover, .nav>li>a:focus, a.navbar-brand:hover, a.navbar-brand:focus {
-    background-color: #6a2790 !important;
-    color: white;
+    color: #0f0f0f;
     opacity: 0.7 !important;
 }
 
