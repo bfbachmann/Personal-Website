@@ -15,10 +15,10 @@
 
 		<div class="content">
 			<h3>
-				<%= link_to article.title, article_path(article) %>
+				<%= link_to article.title, article_path(article), :class => "article-title" %>
 				<small class="timestamp"> <%= article.updated_at.to_date.strftime("%v") %> | <%= article.comments.count %> comments  </small>
 			</h3>
-			<%= raw(article.text) %>
+			<div class="article-body"> <%= raw(article.text) %> </div>
 		</div>
 
 	</div>

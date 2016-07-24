@@ -62,6 +62,7 @@ img.resume:hover {
 
 .visualizer-col {
 	padding-left: 0 !important;
+	position: relative;
 }
 
 .particles-img {
@@ -70,4 +71,13 @@ img.resume:hover {
 
 .particles-col {
 	padding-right: 0 !important;
+}
+
+a.glyphicon.glyphicon-play-circle {
+	font-size: 24px;
+	z-index: 2;
+	color: white;
+	position: absolute;
+	top: 2px;
+	left: 2px;
 }

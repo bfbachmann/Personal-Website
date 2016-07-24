@@ -3,9 +3,12 @@
 
 <div class="container-fluid content">
 	<div class="col-sm-6 visualizer-col">
-		<%= link_to image_tag("visualizer.png", width: '700', :class => 'img-responsive shadow'), static_pages_visualizer_path, target: "_blank" %>
+		<%= link_to '', static_pages_visualizer_path, :class => "glyphicon glyphicon-play-circle", :target => '_blank' %>
+
+		<%= link_to image_tag("visualizer.png", width: '700', :class => 'img-responsive hvr-glow'), static_pages_visualizer_path, target: "_blank" %>
 	</div>
-	<div class="col-sm-6 content proj-description">
+
+	<div class="col-sm-6">
 		<h3 class="proj-head"> Three.js Audio Visualizer &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/Three.js-Audio-Visualizer', :target => '_blank', :class => 'proj-link' %> </h3>
 		<p>
 			Built in pure Javascript using the THREE.js graphics library and WebAudio APIs. My script loads a sounds clip, initializes the visualizer, and starts playing the sound. On each render call my visualizer queries my analyzer for the volume at certain frequency intevals and translates this volume to the brightness of the the light corresponding to the frequency.
@@ -15,8 +18,10 @@
 
 <hr>
 	
-<div class="container-fluid content">
-		<%= link_to image_tag("game.png", :class => 'img-responsive game-image shadow', :style => "background-size: cover;"), 'https://www.youtube.com/watch?v=JK2lKgh4JSc', target: "_blank" %>
+<div class="container-fluid content" style="position: relative;">
+		<%= link_to '', 'https://www.youtube.com/watch?v=JK2lKgh4JSc', :class => "glyphicon glyphicon-play-circle", :target => '_blank', :style => "left: 17px;" %>
+
+		<%= link_to image_tag("game.png", :class => 'img-responsive game-image hvr-glow', :style => "background-size: cover;"), 'https://www.youtube.com/watch?v=JK2lKgh4JSc', target: "_blank" %>
 
 		<div class="col-sm-12">
 			<h3 class="proj-head"> Third-person Adventure Game &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/Unity-3rd-Person-Game', :target => '_blank', :class => 'proj-link' %> </h3>
@@ -56,6 +61,8 @@
 		</p>
 	</div>
 	<div class="col-sm-6 particles-col">
-		<%= link_to image_tag("particles.png", :class => 'img-responsive particles-img shadow'), 'https://www.youtube.com/watch?v=O12KDMdY7jA', target: "_blank" %>
+		<%= link_to '', 'https://www.youtube.com/watch?v=O12KDMdY7jA', :class => "glyphicon glyphicon-play-circle", :target => '_blank', :style => "left: 17px;" %>
+
+		<%= link_to image_tag("particles.png", :class => 'img-responsive particles-img hvr-glow'), 'https://www.youtube.com/watch?v=O12KDMdY7jA', target: "_blank" %>
 	</div>
 </div>
