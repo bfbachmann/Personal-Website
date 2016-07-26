@@ -31,14 +31,8 @@ a.glyphicon.glyphicon-trash  {
     height: 100%;
 }
 
-.images-header {
-    position: relative;
-}
-
 .images-center-column {
     width: 1000px;
-    text-align: center;
-    margin: 0 auto;
     background-color: #ffffff !important;
     border-radius: 3px;
     padding: 10px;
@@ -50,4 +44,5 @@ a.glyphicon.glyphicon-trash  {
     color: black !important;
     top: 2px;
     right: 2px;
+    z-index: 1 !important;
 }

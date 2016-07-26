@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   def index
     if can? :read, Photo
       @photos = Photo.order('created_at')
-      render layout: 'layouts/welcome'
+      render layout: 'layouts/photo'
     else 
       redirect_to root_path
     end

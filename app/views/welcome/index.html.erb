@@ -1,4 +1,4 @@
-<div class="container-fluid feed">
+<div class="container-fluid">
 
 	<h2>Articles</h2>
 
@@ -20,24 +20,5 @@
 			<% end %>
 		</div>
 	<% end %>
-
-	<hr>
-
-	<div class="col-sm-6 container-fluid">
-		<h2 class="center">Github</h2>
-
-		<div class="github-feed">
-			<% @feed.entries.first(5).each do |entry| %>
-				<%= raw(entry.content) %>
-				<hr>
-	 		<% end %>
-	 	</div>
-	</div>
-
-	<div class="col-sm-6 container-fluid">
-		<h2 class="center">Twitter</h2>
-
-		<a class="twitter-timeline" data-height="1000" href="https://twitter.com/bfbachmann">Tweets by bfbachmann</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-	</div>
 
 </div>

@@ -10,7 +10,8 @@
 		</p>
 
 		<p>
-			<%= f.submit :class => 'btn btn-success', :id => 'save-article'%>
+			<%= f.submit 'Update', :class => 'btn btn-success', :id => 'save-article' %>
+			<%= yield :publish_button %>
 			<%= yield :delete_button %>
 		</p>
 	<% end %>
