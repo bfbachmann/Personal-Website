@@ -1,5 +1,8 @@
 <%= render 'layouts/navbar' %>
 
+<%= yield :back_button %>
+<%= yield :plus_button %>
+
 <div class="center-column container-fluid">
 	<% if notice %>
 		<p class="alert alert-success"><%= notice %></p>

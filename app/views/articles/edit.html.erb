@@ -1,7 +1,5 @@
 <%= link_to '', articles_path, :class => "btn btn-default glyphicon glyphicon-arrow-left", :id => "back-button" %>
 
-<h2> Edit Article </h2>
-
 <% content_for :publish_button do %>
 	<%= link_to 'Publish', article_path(@article), method: :publish, :class => 'btn btn-warning' %>
 <% end %>

@@ -1,8 +1,8 @@
 <% if current_user.try(:admin?) %>
-	<%= link_to '', new_article_path, :class => "btn btn-default glyphicon glyphicon-plus", :id => "plus-button" %>
+	<%= content_for :plus_button do %>
+		<%= link_to '', new_article_path, :class => "btn btn-default glyphicon glyphicon-plus", :id => "plus-button" %>
+	<% end %>
 <% end %>
-
-<h1> Articles </h1>
 
 <% if @articles.count == 0 %>
 	<p> <em> Sorry, it doesn't look like there are any articles here </em></p>

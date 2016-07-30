@@ -1,24 +1,101 @@
-<div class="container-fluid">
+<script type="text/javascript">
 
-	<h2>Articles</h2>
+// Declare top level variables
+var camera, scene, renderer, container, controls, spotLight;
+var spheres = [];
 
-	<% [@articles1to3, @articles4to6].each do |articles| %>
-		<div class="row center">
-			<% articles.each do |article| %>
-					<% if article.nil? then break end %>
+$(window).bind('beforeunload', function(){
+    return "Unsaved changes will be lost if you leave the page.";
+});
 
-					<% if not article.photo_uid.nil? %>
-						<%= link_to article_path(article) do %>
-							<div class="col-sm-4 box">
-								<div class="box-header">
-									<h4> <%= article.title %> </h4>
-								</div>
-								<%= image_tag(@photos.find_by(:id => article.photo_uid).image, :size => "300x150") %> 
-							</div>
-						<% end %>
-					<% end %>
-			<% end %>
-		</div>
-	<% end %>
+init();
+animate();
 
-</div>
+
+
+// Initialize THREE.js objects
+function init() {
+    
+    // Create element to hold the window
+    container = document.createElement( 'div' );
+    document.body.appendChild( container );
+    
+    // Initialize the camera, scene, and renderer
+    camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000 );
+    camera.position.z = 4;
+    
+    scene = new THREE.Scene();
+    
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight);
+    renderer.setClearColor( 0xf0f0f0 );
+    document.body.appendChild( renderer.domElement );
+    
+    // Setup camera controls 
+    controls = new THREE.TrackballControls(camera);
+    controls.addEventListener('change', render);
+
+    var light = new THREE.AmbientLight( 0xf0f0f0, 2); // soft white light
+	scene.add( light );
+
+	spotLight = new THREE.DirectionalLight( 0xffffff );
+	spotLight.position.set( 100, 1000, 100 );
+
+	spotLight.castShadow = true;
+
+	spotLight.shadow.mapSize.width = 256;
+	spotLight.shadow.mapSize.height = 256;
+
+	spotLight.shadow.camera.near = 500;
+	spotLight.shadow.camera.far = 4000;
+	spotLight.shadow.camera.fov = 30;
+
+	scene.add( spotLight );
+    
+    initModel();
+}
+
+
+
+// Render the scene
+function render() {
+    renderer.render(scene, camera);
+}
+
+
+// Amimate the scene
+function animate() {
+	updateSpotLightPosition();
+    render();
+    requestAnimationFrame(animate);
+    controls.update();
+}
+
+
+// Loads 3D character model into scene form JSON file
+function initModel() {
+    var loader = new THREE.JSONLoader();
+    loader.load("/assets/small world.json",  addModel);
+}
+
+function addModel( geometry, materials) {
+
+	makeMaterialsDoubleSided(materials);
+
+	var material = new THREE.MultiMaterial( materials );
+	model = new THREE.Mesh (geometry, material, doubleSided = true);
+	model.doubleSided = true;
+	scene.add(model);
+}
+
+function updateSpotLightPosition() {
+	spotLight.position.set(camera.position.x, camera.position.y - 200, camera.position.z);
+}
+
+function makeMaterialsDoubleSided(materials) {
+	$(materials).each( function (index, material) {
+		material.side = THREE.DoubleSide;
+	} );
+}
+
+</script>

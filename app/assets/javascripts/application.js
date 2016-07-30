@@ -14,6 +14,6 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require tinymce-jquery
-//= require three
+//= require three.min
 //= require turbolinks
 

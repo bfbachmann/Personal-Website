@@ -15,15 +15,15 @@
 
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-custom navbar-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
 		  <a class="navbar-brand" href="/welcome/index"> Home </a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li> <%= link_to 'Articles', articles_path %> </li> 
-			<li> <%= link_to 'About', static_pages_about_path %> </li> 
+			<li> <%= link_to 'Blog', articles_path %> </li> 
 			<li> <%= link_to 'Projects', static_pages_projects_path %> </li> 
+			<li> <%= link_to 'About', static_pages_about_path %> </li> 
 
 			<% if current_user.try(:admin?) %>
 				<li> <%= link_to 'Images', photos_path %> </li> 

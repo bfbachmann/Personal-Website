@@ -1,7 +1,7 @@
-<%= link_to '', articles_path, :class => "btn btn-default glyphicon glyphicon-arrow-left", :id => "back-button" %>
 
-<h2> View Article </h2>
-<hr>
+<%= content_for :back_button do %>
+	<%= link_to '', articles_path, :class => "btn btn-default glyphicon glyphicon-arrow-left", :id => "back-button" %>
+<% end %>
 
 <div class="container-fluid full-article">
 	<h3>
