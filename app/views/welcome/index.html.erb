@@ -1,30 +1,15 @@
-<script type="application/x-glsl" id="sky-vertex">  
-	varying vec2 vUV;
-
-	void main() {  
-	  vUV = uv;
-	  vec4 pos = vec4(position, 1.0);
-	  gl_Position = projectionMatrix * modelViewMatrix * pos;
-	}
-</script>
-
-<script type="application/x-glsl" id="sky-fragment">  
-	uniform sampler2D texture;  
-	varying vec2 vUV;
-
-	void main() {  
-	  vec4 sample = texture2D(texture, vUV);
-	  gl_FragColor = vec4(sample.xyz, sample.w);
-	}
-</script> 
-
 <script type="text/javascript">
 
 // Declare top level variables
 var camera, scene, renderer, container, controls, spotLight, model;
+var proceed = true;
 
 $(window).bind('beforeunload', function(){
-    return "Unsaved changes will be lost if you leave the page.";
+    camera = scene = renderer = container = controls = spotLight = model = null;
+    proceed = false;
+    document.removeChild(renderer.domElement);
+    document.body.removeChild(container);
+    delete THREE.WebGLRenderer;
 });
 
 init();
@@ -37,6 +22,7 @@ function init() {
     
     // Create element to hold the window
     container = document.createElement( 'div' );
+    container.style = "position: absolute; top: 0px; z-index: -1;";
     document.body.appendChild( container );
     
     // Initialize the camera, scene, and renderer
@@ -49,10 +35,10 @@ function init() {
     renderer.setSize( window.innerWidth, window.innerHeight);
     renderer.setClearColor( 0xf0f0f0 );
     renderer.gammaOutput = true;
-    document.body.appendChild( renderer.domElement );
+    container.appendChild( renderer.domElement );
     
     // Setup camera controls 
-    controls = new THREE.TrackballControls(camera);
+    controls = new THREE.TrackballControls(camera, container);
     controls.addEventListener('change', render);
 
     var light = new THREE.AmbientLight( 0xf0f0f0, 2); // soft white light
@@ -86,7 +72,7 @@ function render() {
 // Amimate the scene
 function animate() {
     render();
-    requestAnimationFrame(animate);
+    if (proceed) requestAnimationFrame(animate);
     controls.update();
 	rotateModel();
 }
@@ -118,7 +104,7 @@ function makeMaterialsDoubleSided(materials) {
 }
 
 function rotateModel() {
-	model.rotation.x += 0.003;
+	model.rotation.x += 0.001;
 	model.rotation.y += 0.003;
 }
 
