@@ -1,8 +1,27 @@
+<script type="application/x-glsl" id="sky-vertex">  
+	varying vec2 vUV;
+
+	void main() {  
+	  vUV = uv;
+	  vec4 pos = vec4(position, 1.0);
+	  gl_Position = projectionMatrix * modelViewMatrix * pos;
+	}
+</script>
+
+<script type="application/x-glsl" id="sky-fragment">  
+	uniform sampler2D texture;  
+	varying vec2 vUV;
+
+	void main() {  
+	  vec4 sample = texture2D(texture, vUV);
+	  gl_FragColor = vec4(sample.xyz, sample.w);
+	}
+</script> 
+
 <script type="text/javascript">
 
 // Declare top level variables
-var camera, scene, renderer, container, controls, spotLight;
-var spheres = [];
+var camera, scene, renderer, container, controls, spotLight, model;
 
 $(window).bind('beforeunload', function(){
     return "Unsaved changes will be lost if you leave the page.";
@@ -66,10 +85,10 @@ function render() {
 
 // Amimate the scene
 function animate() {
-	updateSpotLightPosition();
     render();
     requestAnimationFrame(animate);
     controls.update();
+	rotateModel();
 }
 
 
@@ -89,14 +108,18 @@ function addModel( geometry, materials) {
 	scene.add(model);
 }
 
-function updateSpotLightPosition() {
-	spotLight.position.set(camera.position.x, camera.position.y - 200, camera.position.z);
-}
 
+// Make all materials in the mesh double sided so we can see
+// them from all angles
 function makeMaterialsDoubleSided(materials) {
 	$(materials).each( function (index, material) {
 		material.side = THREE.DoubleSide;
 	} );
+}
+
+function rotateModel() {
+	model.rotation.x += 0.003;
+	model.rotation.y += 0.003;
 }
 
 </script>
