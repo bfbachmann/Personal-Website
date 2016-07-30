@@ -29,6 +29,7 @@ function init() {
     renderer = new THREE.WebGLRenderer();
     renderer.setSize( window.innerWidth, window.innerHeight);
     renderer.setClearColor( 0xf0f0f0 );
+    renderer.gammaOutput = true;
     document.body.appendChild( renderer.domElement );
     
     // Setup camera controls 
