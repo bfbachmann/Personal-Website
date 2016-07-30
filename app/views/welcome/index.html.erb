@@ -89,8 +89,7 @@ function addModel( geometry, materials) {
 	makeMaterialsDoubleSided(materials);
 
 	var material = new THREE.MultiMaterial( materials );
-	model = new THREE.Mesh (geometry, material, doubleSided = true);
-	model.doubleSided = true;
+	model = new THREE.Mesh (geometry, material);
 	scene.add(model);
 }
 

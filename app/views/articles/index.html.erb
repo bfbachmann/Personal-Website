@@ -8,20 +8,26 @@
 	<p> <em> Sorry, it doesn't look like there are any articles here </em></p>
 <% end %>
 
-<% @articles.each do |article| %>
+<% @articles.each_with_index do |article, index| %>
+
+	<% if not article.photo_uid.nil? %>
+		<% if index % 3 == 0 %>
+			<div class="row">
+		<% end %>
 	
-	<hr>
-	<div class="container-fluid article-info">
+		<%= link_to article_path(article) do %>
+			<div class="col-sm-4 box">
+				<div class="box-header">
+					<h4 class="box-header-title"> <%= article.title %> </h4>
+				</div>
+				<%= image_tag(@photos.find_by(:id => article.photo_uid).image, :size => "300x150") %> 
+			</div>
+		<% end %>
 
-		<div class="content">
-			<h3>
-				<%= link_to article.title, article_path(article), :class => "article-title" %>
-				<small class="timestamp"> <%= article.updated_at.to_date.strftime("%v") %> | <%= article.comments.count %> comments  </small>
-			</h3>
-			<div class="article-body"> <%= raw(article.text) %> </div>
-		</div>
-
-	</div>
+		<% if index % 3 == 2 %>
+			</div>
+		<% end %>
+	<% end %>
 
 <% end %>
 

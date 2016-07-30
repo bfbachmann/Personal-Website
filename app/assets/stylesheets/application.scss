@@ -65,20 +65,13 @@ a {
     width: 850px;
     text-align: center;
     margin: 0 auto;
-    background-color: #ffffff !important;
     border-radius: 3px;
     padding: 10px 30px 10px 30px !important;
     position: relative;
 }
 
 body {
-    /*background: linear-gradient(to right, #062f4f, #264f6f, #062f4f);*/
     text-align: center;
-}
-
-#error-message {
-    color: red;
-    background-color: #ff9999;
 }
 
 .container-fluid {
@@ -101,7 +94,7 @@ body {
 .nav>li>a:hover, .nav>li>a:focus, a.navbar-brand:hover, a.navbar-brand:focus {
     color: black;
     opacity: 0.7 !important;
-    /*background-color: #b82641 !important;*/
+    background-color: transparent !important;
 }
 
 .article-action {
@@ -114,22 +107,22 @@ body {
 }
 
 #back-button {
-    float: left;
     background-color: #f2f2f2;
     color: black !important;
     position: absolute;
-    top: 50px;
-    left: 250px;
+    top: 70px;
+    left: 285px;
+    z-index: 1;
 }
 
 #plus-button {
-    float: right;
+    z-index: 2;
     background-color: #f2f2f2;
     color: black !important;
     display: inline;
     position: absolute;
+    right: 100px;
     top: 50px;
-    right: 250px;
 }
 
 #delete-comment {

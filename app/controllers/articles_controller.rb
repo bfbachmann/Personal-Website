@@ -4,6 +4,14 @@ class ArticlesController < ApplicationController
 
 	def index
 		@articles = Article.all.reverse_order
+		@photos = Photo.all
+
+		@articles.each do |article|
+			if article.photo_uid.nil?
+				@articles.delete article
+			end
+		end
+		render layout: 'all_articles'
 	end
 
 	def new
