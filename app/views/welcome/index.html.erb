@@ -1,7 +1,7 @@
 <script type="text/javascript">
 
 //Stop Turbolinks from firing on this page
-$('body').attr("data-no-turbolink", "true");
+$('body').attr("data-turbolinks", "false");
 
 // Declare top level variables
 var camera, scene, renderer, container, controls, spotLight, model;
@@ -14,11 +14,10 @@ $(document).on('turbolinks:visit', function () {
     document.body.removeChild(container);
     renderer.clear();
     delete renderer;
+    delete THREE.WebGLRenderer;
 });
 
-init();
-animate();
-
+$(init)
 
 
 // Initialize THREE.js objects
@@ -63,6 +62,7 @@ function init() {
 	scene.add( spotLight );
     
     initModel();
+    animate();
 }
 
 
