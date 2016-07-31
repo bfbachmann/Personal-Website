@@ -1,15 +1,19 @@
 <script type="text/javascript">
 
+//Stop Turbolinks from firing on this page
+$('body').attr("data-no-turbolink", "true");
+
 // Declare top level variables
 var camera, scene, renderer, container, controls, spotLight, model;
 var proceed = true;
 
-$(window).bind('beforeunload', function(){
+$(document).on('turbolinks:visit', function () {
     camera = scene = renderer = container = controls = spotLight = model = null;
     proceed = false;
     document.removeChild(renderer.domElement);
     document.body.removeChild(container);
-    delete THREE.WebGLRenderer;
+    renderer.clear();
+    delete renderer;
 });
 
 init();

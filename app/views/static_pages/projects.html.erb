@@ -8,7 +8,7 @@
 	<div class="col-sm-6">
 		<h3 class="proj-head"> Three.js Audio Visualizer &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/Three.js-Audio-Visualizer', :target => '_blank', :class => 'proj-link' %> </h3>
 		<p>
-			Built in pure Javascript using the THREE.js graphics library and WebAudio APIs. My script loads a sounds clip, initializes the visualizer, and starts playing the sound. On each render call my visualizer queries my analyzer for the volume at certain frequency intevals and translates this volume to the brightness of the the light corresponding to the frequency.
+			Built in pure Javascript using the THREE.js graphics library and WebAudio APIs. My script loads a sound clip, initializes the visualizer, and starts playing the sound. On each render call the visualizer queries the analyzer for the volume at certain frequency intervals and uses this volume reading to adjust the brightness of the light corresponding to that frequency.
 		</p>
 	</div>
 </div>

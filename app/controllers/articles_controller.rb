@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
 		    @photos = Photo.all
     
 			if @article.save 
-				redirect_to @article
+				render 'edit'
 			else
 				render 'new'
 			end
