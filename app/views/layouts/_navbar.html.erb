@@ -30,16 +30,16 @@
 			<% end %>
 		</ul>
 
-		<div class="nav navbar-center">
-			<%- if user_signed_in? %>
-			  <li> Signed in as <strong> <%= current_user.display_name %>
+		<%- if user_signed_in? %>
+			<div class="nav-center">
+			  <p> Signed in as <strong> <%= current_user.display_name %>
 				<% if current_user.try(:admin?) %>
 					(Admin)
 				<% end %>
 				</strong>
-			  </li>
-			<% end %>
-		</div>
+			  </p>
+			</div>
+		<% end %>
 
 		<ul class="nav navbar-nav navbar-right">
 

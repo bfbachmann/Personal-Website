@@ -81,29 +81,34 @@ body {
 .navbar {
     margin-bottom: 20px !important;
     border-radius: 0px !important;
-}
-
-.navbar-inverse {
-    color: black;
+    background-color: black;
 }
 
 .navbar a {
-    color: black !important;
+    color: white !important;
 }
 
 .nav>li>a:hover, .nav>li>a:focus, a.navbar-brand:hover, a.navbar-brand:focus {
-    color: black;
+    color: white;
     opacity: 0.7 !important;
     background-color: transparent !important;
+}
+
+.navbar-inner {
+    position: relative;
+    text-align: center;
+}
+
+.nav-center {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-33%);
+    position: absolute;
 }
 
 .article-action {
     color: white !important;
     float: right;
-}
-
-.descriptor {
-    padding: 0px !important;
 }
 
 #back-button {
@@ -122,7 +127,7 @@ body {
     display: inline;
     position: absolute;
     right: 100px;
-    top: 50px;
+    top: 70px;
 }
 
 #delete-comment {
@@ -136,18 +141,6 @@ button>a, button>a:hover {
 
 .btn {
     margin: 2px;
-}
-
-.navbar-center {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    margin:0 auto;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: -5;
-    color: black;
 }
 
 .form-group {
