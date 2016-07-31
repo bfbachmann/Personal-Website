@@ -8,9 +8,21 @@
 	<p> <em> Sorry, it doesn't look like there are any articles here </em></p>
 <% end %>
 
+<% if current_user.try(:admin) %>
+
+	<% @articles.each do |article| %>
+		<% if article.published != true or article.photo_uid.nil? %>
+			<%= link_to article_path(article) do %>
+				<h4> Private: <%= article.title %> <h4>
+			<% end %>
+		<% end %>
+	<% end %>
+
+<% end %>
+
 <% @articles.each_with_index do |article, index| %>
 
-	<% if not article.photo_uid.nil? %>
+	<% if not article.photo_uid.nil? and article.published == true %>
 		<% if index % 3 == 0 %>
 			<div class="row">
 		<% end %>

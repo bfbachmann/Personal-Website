@@ -6,11 +6,6 @@ class ArticlesController < ApplicationController
 		@articles = Article.all.reverse_order
 		@photos = Photo.all
 
-		@articles.each do |article|
-			if article.photo_uid.nil?
-				@articles.delete article
-			end
-		end
 		render layout: 'all_articles'
 	end
 
@@ -26,6 +21,7 @@ class ArticlesController < ApplicationController
 	def create
 		if can? :create, Article
 			@article = Article.new(article_params)
+			@article.published = false
 		    @photos = Photo.all
     
 			if @article.save 
@@ -78,6 +74,21 @@ class ArticlesController < ApplicationController
 
 			redirect_to articles_path
 		else 
+			redirect_to welcome_index_path
+		end
+	end
+
+	def publish
+		if can? :update, Article
+			@article = Article.find(params[:article_id])
+			@article.published = params[:publish]
+
+			if @article.save
+				redirect_to articles_path
+			else 
+				render 'edit'
+			end
+		else
 			redirect_to welcome_index_path
 		end
 	end

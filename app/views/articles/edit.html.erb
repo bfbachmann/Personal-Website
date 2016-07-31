@@ -2,8 +2,14 @@
 	<%= link_to '', articles_path, :class => "btn btn-default glyphicon glyphicon-arrow-left", :id => "back-button" %>
 <% end %>
 
-<% content_for :publish_button do %>
-	<%= link_to 'Publish', article_path(@article), method: :publish, :class => 'btn btn-warning' %>
+<% if @article.published == false %>
+	<% content_for :publish_button do %>
+		<%= link_to 'Publish', article_publish_path(@article, :publish => true), :controller => :articles, :action => :publish, :method => :patch, :class => 'btn btn-warning' %>
+	<% end %>
+<% else %>
+	<% content_for :publish_button do %>
+		<%= link_to 'Unpublish', article_publish_path(@article, :publish => false), :controller => :articles, :action => :publish, :method => :patch, :class => 'btn btn-warning' %>
+	<% end %>
 <% end %>
 
 <% content_for :delete_button do %>

@@ -49,7 +49,7 @@ class PhotosController < ApplicationController
       @photo.article_id = @article.id
 
       if @article.save and @photo.save
-        redirect_to welcome_index_path
+        redirect_to edit_article_path(@article)
       else
         @photos = Photo.all
         render 'articles/edit'

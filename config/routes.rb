@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments
+    patch 'publish'
   end
 
   resources :messages
