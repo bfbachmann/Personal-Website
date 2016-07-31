@@ -4,7 +4,11 @@
 
 <% if @article.published == false %>
 	<% content_for :publish_button do %>
-		<%= link_to 'Publish', article_publish_path(@article, :publish => true), :controller => :articles, :action => :publish, :method => :patch, :class => 'btn btn-warning' %>
+		<% if not @article.photo_uid.nil? %>
+			<%= link_to 'Publish', article_publish_path(@article, :publish => true), :controller => :articles, :action => :publish, :method => :patch, :class => 'btn btn-warning' %>
+		<% else %>
+			<%= link_to 'Publish', article_publish_path(@article, :publish => true), :controller => :articles, :action => :publish, :method => :patch, :class => 'btn btn-warning disabled' %>
+		<% end %>
 	<% end %>
 <% else %>
 	<% content_for :publish_button do %>

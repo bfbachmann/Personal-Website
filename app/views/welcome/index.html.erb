@@ -7,16 +7,6 @@ $('body').attr("data-turbolinks", "false");
 var camera, scene, renderer, container, controls, spotLight, model;
 var proceed = true;
 
-$(document).on('turbolinks:visit', function () {
-    camera = scene = renderer = container = controls = spotLight = model = null;
-    proceed = false;
-    document.removeChild(renderer.domElement);
-    document.body.removeChild(container);
-    renderer.clear();
-    delete renderer;
-    delete THREE.WebGLRenderer;
-});
-
 $(init)
 
 
