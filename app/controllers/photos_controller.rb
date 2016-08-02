@@ -1,4 +1,7 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
+
   def index
     if can? :read, Photo
       @photos = Photo.order('created_at')
@@ -63,5 +66,9 @@ class PhotosController < ApplicationController
 
   def photo_params
     params.require(:photo).permit(:image, :title)
+  end
+
+  def set_s3_direct_post
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
   end
 end

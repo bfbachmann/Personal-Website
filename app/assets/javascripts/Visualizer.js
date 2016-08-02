@@ -1,4 +1,4 @@
-var camera, scene, renderer, container, controls;
+var camera, scene, renderer, container, controls, stats;
 var light1, dirLight;
 var tick = 0;
 var cubes = [];
@@ -20,7 +20,7 @@ function initVisualizer() {
     
     // Initialize the camera, scene, and renderer
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000 );
-    camera.position.z = 700;
+    camera.position.z = 900;
     
     scene = new THREE.Scene();
     
@@ -28,6 +28,10 @@ function initVisualizer() {
     renderer.setSize( window.innerWidth, window.innerHeight);
     renderer.setClearColor( 0x000000 );
     document.body.appendChild( renderer.domElement );
+
+    //Show performance
+    stats = new Stats();
+    container.appendChild(stats.domElement);
     
     // Setup camera controls 
     controls = new THREE.TrackballControls(camera);
@@ -129,7 +133,7 @@ function render() {
 
 function animate() {
 
-	requestAnimationFrame(animate);
+	stats.begin();
 
 	if (isPlaying()) {
 		animateCubes();
@@ -138,6 +142,10 @@ function animate() {
 
 	controls.update();
 	render();
+
+	stats.end();
+
+	requestAnimationFrame(animate);
 }
 
 

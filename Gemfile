@@ -73,4 +73,4 @@ end
 
 gem "paperclip", "~> 4.2"
 
-gem 'feedjira'
+gem 'aws-sdk', '~> 2'

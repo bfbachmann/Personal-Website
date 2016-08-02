@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require tinymce-jquery
 //= require three.min
+//= require stats.min
 //= require turbolinks
 
