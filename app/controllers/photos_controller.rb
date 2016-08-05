@@ -79,6 +79,7 @@ class PhotosController < ApplicationController
       @photo = Photo.find(params[:id])
 
       @article.photo_uid = nil
+      @article.published = false
       @photo.article_id = nil
 
       if @article.save and @photo.save
