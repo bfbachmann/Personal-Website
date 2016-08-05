@@ -5,6 +5,8 @@ class PhotosController < ApplicationController
   def index
     if can? :read, Photo
       @photos = Photo.order('created_at')
+      @active_ids = Article.find_by_sql('select distinct photo_uid from articles')
+
       render layout: 'layouts/photo'
     else 
       redirect_to root_path
@@ -35,7 +37,11 @@ class PhotosController < ApplicationController
   def destroy
     if can? :destroy, Photo
       @photo = Photo.find(params[:id])
-      @photo.destroy
+      articles_with_photo = Article.find(photo_uid: @photo.id)
+
+      if not articles_with_photo.any?
+        @photo.destroy
+      end
 
       redirect_to photos_path
     else
@@ -50,6 +56,25 @@ class PhotosController < ApplicationController
 
       @article.photo_uid = @photo.id
       @photo.article_id = @article.id
+
+      if @article.save and @photo.save
+        redirect_to edit_article_path(@article)
+      else
+        @photos = Photo.all
+        render 'articles/edit'
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
+  def remove_from_article
+    if can? :update, Photo
+      @article = Article.find(params[:article_id])
+      @photo = Photo.find(params[:id])
+
+      @article.photo_uid = nil
+      @photo.article_id = nil
 
       if @article.save and @photo.save
         redirect_to edit_article_path(@article)

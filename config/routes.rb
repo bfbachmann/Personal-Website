@@ -2,8 +2,12 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "devise/registrations" }
 
-  resources :photos, only: [:new, :create, :index, :destroy, :update]
-  
+  resources :photos do 
+    collection do 
+      patch :remove_from_article, :action => :remove_from_article
+    end
+  end
+
   get 'static_pages/about'
 
   get 'static_pages/projects'
