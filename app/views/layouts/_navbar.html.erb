@@ -16,7 +16,7 @@
 <body>
 
 <nav class="navbar navbar-custom navbar-top">
-	<div class="container-fluid">
+	<div class="container-fluid navbar-inner">
 		<div class="navbar-header">
 		  <%= link_to '', welcome_index_path, :class => "navbar-brand glyphicon glyphicon-home" %>
 		</div>
@@ -31,15 +31,14 @@
 		</ul>
 
 		<%- if user_signed_in? %>
-			<div class="nav-center">
-			  <p> Signed in as <strong> <%= current_user.display_name %>
-				<% if current_user.try(:admin?) %>
-					(Admin)
-				<% end %>
-				</strong>
-			  </p>
-			</div>
+		  <a class="navbar-center"> Signed in as <strong> <%= current_user.display_name %>
+			<% if current_user.try(:admin?) %>
+				(Admin)
+			<% end %>
+			</strong>
+		  </a>
 		<% end %>
+
 
 		<ul class="nav navbar-nav navbar-right">
 

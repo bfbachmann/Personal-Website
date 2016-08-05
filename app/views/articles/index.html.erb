@@ -37,7 +37,7 @@
 	<% if @unpublished.count == 0 %>
 		<p> <em> Sorry, it doesn't look like there are any articles here </em></p>
 	<% else %>
-	
+
 		<% @unpublished.each_with_index do |article, index| %>
 
 			<% if index % 3 == 0 %>
