@@ -37,9 +37,30 @@
 	<% if @unpublished.count == 0 %>
 		<p> <em> Sorry, it doesn't look like there are any articles here </em></p>
 	<% else %>
-		<% @unpublished.each do |article| %>
-			<%= link_to article_path(article) do %>
-				<h4> <%= article.title %> <h4>
+	
+		<% @unpublished.each_with_index do |article, index| %>
+
+			<% if index % 3 == 0 %>
+				<div class="row">
+			<% end %>
+
+			<% if not article.photo_uid.nil? %>
+			
+				<%= link_to article_path(article) do %>
+					<div class="col-sm-4 box">
+						<div class="box-header">
+							<h4 class="box-header-title"> <%= article.title %> </h4>
+						</div>
+						<%= image_tag(@photos.find_by(:id => article.photo_uid).image, :size => "300x150") %> 
+					</div>
+				<% end %>
+
+			<% else %>
+				<%= link_to article.title, article_path(article) %>
+			<% end %>
+
+			<% if index % 3 == 2 %>
+				</div>
 			<% end %>
 		<% end %>
 	<% end %>
