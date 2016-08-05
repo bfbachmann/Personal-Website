@@ -2,21 +2,6 @@
 	<p> <em> Sorry, it doesn't look like there are any articles here </em></p>
 <% end %>
 
-<% if current_user.try(:admin?) %>
-	<%= content_for :plus_button do %>
-		<%= link_to '', new_article_path, :class => "btn btn-default glyphicon glyphicon-plus", :id => "plus-button" %>
-	<% end %>
-
-	<% @articles.each do |article| %>
-		<% if article.published != true or article.photo_uid.nil? %>
-			<%= link_to article_path(article) do %>
-				<h4> Private: <%= article.title %> <h4>
-			<% end %>
-		<% end %>
-	<% end %>
-
-<% end %>
-
 <% @articles.each_with_index do |article, index| %>
 
 	<% if not article.photo_uid.nil? and article.published == true %>
@@ -40,3 +25,23 @@
 
 <% end %>
 
+<% if current_user.try(:admin?) %>
+	<%= content_for :plus_button do %>
+		<%= link_to '', new_article_path, :class => "btn btn-default glyphicon glyphicon-plus", :id => "plus-button" %>
+	<% end %>
+
+	<hr>
+
+	<h2>Private</h2>
+
+	<% if @unpublished.count == 0 %>
+		<p> <em> Sorry, it doesn't look like there are any articles here </em></p>
+	<% else %>
+		<% @unpublished.each do |article| %>
+			<%= link_to article_path(article) do %>
+				<h4> <%= article.title %> <h4>
+			<% end %>
+		<% end %>
+	<% end %>
+
+<% end %>

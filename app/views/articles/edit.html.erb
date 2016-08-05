@@ -2,7 +2,7 @@
 	<%= link_to '', articles_path, :class => "btn btn-default glyphicon glyphicon-arrow-left", :id => "back-button" %>
 <% end %>
 
-<% if @article.published == false %>
+<% if @article.published == false and not @article.photo_uid.nil? %>
 	<% content_for :publish_button do %>
 		<% if not @article.photo_uid.nil? %>
 			<%= link_to 'Publish', article_publish_path(@article, :publish => true), :controller => :articles, :action => :publish, :method => :patch, :class => 'btn btn-warning' %>

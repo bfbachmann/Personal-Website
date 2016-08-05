@@ -3,7 +3,8 @@ class ArticlesController < ApplicationController
 	before_action :authenticate_user!, :except => [:index, :show]
 
 	def index
-		@articles = Article.all.reverse_order
+		@articles = Article.where.not(photo_uid: nil, published: false).reverse_order
+		@unpublished = Article.where(photo_uid: nil) + Article.where(published: false)
 		@photos = Photo.all
 
 		render layout: 'all_articles'
@@ -81,6 +82,8 @@ class ArticlesController < ApplicationController
 	def publish
 		if can? :update, Article
 			@article = Article.find(params[:article_id])
+			@photos = Photo.all
+
 			@article.published = params[:publish]
 
 			if @article.save

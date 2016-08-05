@@ -5,7 +5,12 @@ class PhotosController < ApplicationController
   def index
     if can? :read, Photo
       @photos = Photo.order('created_at')
-      @active_ids = Article.find_by_sql('select distinct photo_uid from articles')
+      active_articles = Article.find_by_sql('select distinct photo_uid from articles')
+      @active_ids = []
+
+      active_articles.each do |article|
+        @active_ids.push article.photo_uid
+      end
 
       render layout: 'layouts/photo'
     else 
@@ -37,9 +42,9 @@ class PhotosController < ApplicationController
   def destroy
     if can? :destroy, Photo
       @photo = Photo.find(params[:id])
-      articles_with_photo = Article.find(photo_uid: @photo.id)
+      articles_with_photo = Article.find_by(photo_uid: @photo.id)
 
-      if not articles_with_photo.any?
+      if articles_with_photo.nil? or not articles_with_photo.any?
         @photo.destroy
       end
 
