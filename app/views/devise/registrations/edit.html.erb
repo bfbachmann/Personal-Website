@@ -1,4 +1,6 @@
- <%= link_to "", :back, :class => "btn btn-default glyphicon glyphicon-arrow-left", :id => "back-button" %>
+<%= content_for :back_button do %>
+  <%= link_to "", :back, :class => "btn btn-default glyphicon glyphicon-arrow-left", :id => "back-button" %>
+<% end %>
 
 <h2> Your Account </h2>
 
