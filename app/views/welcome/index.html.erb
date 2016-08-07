@@ -7,7 +7,7 @@ $('body').attr("data-turbolinks", "false");
 var camera, scene, renderer, container, controls, spotLight, model;
 var proceed = true;
 var rocks = [];
-var numRocks = 10;
+var numRocks = 20;
 var clock = new THREE.Clock();
 var tick = 0;
 
@@ -102,12 +102,13 @@ function initRocks() {
 
 
 function addRockModels(geometry, material) {
-    for (var i = 0; i < numRocks; i++) {
-        var material = new THREE.MeshBasicMaterial( material );
-        var model = new THREE.Mesh (geometry, material);
-        var modelScale = Math.random() / 1.5 + 0.2;
 
-        model.position.set(Math.random() * 5 + 5, Math.random() * 5 + 5, Math.random() * 5 + 5);
+    for (var i = 0; i < numRocks; i++) {
+        var rockMaterial = new THREE.MultiMaterial( material );
+        var model = new THREE.Mesh (geometry, rockMaterial);
+        var modelScale = Math.random() / 2 + 0.1;
+
+        model.position.set(Math.random() * 5 + 1, Math.random() * 5 + 1, Math.random() * 5 + 1);
         model.radius = model.position.length();
         model.scale.set(modelScale, modelScale, modelScale);
 
@@ -143,9 +144,12 @@ function animateRockModels() {
         for (var i = 0; i < numRocks; i++) {
             var rock = rocks[i];
 
-            rock.position.x = rock.radius * Math.cos(tick + i);
-            rock.position.y = rock.radius * Math.cos(tick - i / 2);
-            rock.position.z = rock.radius * Math.sin(tick - i);
+            rock.position.x = rock.radius * Math.sin(tick * i / numRocks + i);
+            rock.position.y = rock.radius * Math.sin(tick * i / numRocks + 1.2 * i);
+            rock.position.z = rock.radius * Math.cos(tick * i / numRocks + i);
+
+            rock.rotateX(i / (Math.pow(numRocks, 2)));
+            rock.rotateY(i / (Math.pow(numRocks, 3)));
         }
 
     }
