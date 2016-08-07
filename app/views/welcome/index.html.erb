@@ -6,6 +6,10 @@ $('body').attr("data-turbolinks", "false");
 // Declare top level variables
 var camera, scene, renderer, container, controls, spotLight, model;
 var proceed = true;
+var rocks = [];
+var numRocks = 10;
+var clock = new THREE.Clock();
+var tick = 0;
 
 $(init)
 
@@ -52,6 +56,8 @@ function init() {
 	scene.add( spotLight );
     
     initModel();
+    initRocks();
+
     animate();
 }
 
@@ -69,6 +75,7 @@ function animate() {
     if (proceed) requestAnimationFrame(animate);
     controls.update();
 	rotateModel();
+    animateRockModels(); 
 }
 
 
@@ -78,13 +85,35 @@ function initModel() {
     loader.load("/assets/small world.json",  addModel);
 }
 
-function addModel( geometry, materials) {
+function addModel(geometry, materials) {
 
 	makeMaterialsDoubleSided(materials);
 
 	var material = new THREE.MultiMaterial( materials );
 	model = new THREE.Mesh (geometry, material);
 	scene.add(model);
+}
+
+
+function initRocks() {
+    var loader = new THREE.JSONLoader();
+    loader.load("/assets/orbital rock.json", addRockModels);
+}
+
+
+function addRockModels(geometry, material) {
+    for (var i = 0; i < numRocks; i++) {
+        var material = new THREE.MeshBasicMaterial( material );
+        var model = new THREE.Mesh (geometry, material);
+        var modelScale = Math.random() / 1.5 + 0.2;
+
+        model.position.set(Math.random() * 5 + 5, Math.random() * 5 + 5, Math.random() * 5 + 5);
+        model.radius = model.position.length();
+        model.scale.set(modelScale, modelScale, modelScale);
+
+        scene.add(model); 
+        rocks.push(model);
+    }
 }
 
 
@@ -99,6 +128,27 @@ function makeMaterialsDoubleSided(materials) {
 function rotateModel() {
 	model.rotation.x += 0.001;
 	model.rotation.y += 0.003;
+}
+
+function animateRockModels() {
+    // Get the amount of time that has passed
+    var delta_t = clock.getDelta();
+    tick += delta_t;
+    
+    // Check for wraparound (we want tick to stay positive)
+    if (tick < 0) {
+        tick = 0;
+    } else {
+
+        for (var i = 0; i < numRocks; i++) {
+            var rock = rocks[i];
+
+            rock.position.x = rock.radius * Math.cos(tick + i);
+            rock.position.y = rock.radius * Math.cos(tick - i / 2);
+            rock.position.z = rock.radius * Math.sin(tick - i);
+        }
+
+    }
 }
 
 </script>
