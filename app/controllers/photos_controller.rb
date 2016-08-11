@@ -96,7 +96,7 @@ class PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:image_url, :title)
+    params.require(:photo).permit(:image, :title)
   end
 
   def set_s3_direct_post
