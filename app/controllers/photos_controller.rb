@@ -29,6 +29,8 @@ class PhotosController < ApplicationController
   def create
     if can? :create, Photo
       @photo = Photo.new(photo_params)
+      @photo.image = URI.parse(@photo.image)
+
       if @photo.save
         redirect_to photos_path
       else
