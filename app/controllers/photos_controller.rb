@@ -28,8 +28,9 @@ class PhotosController < ApplicationController
 
   def create
     if can? :create, Photo
-      @photo = Photo.new(photo_params)
-      @photo.image = URI.parse(@photo.image)
+      params = photo_params
+      params['image_url'] = URI.parse(URI.encode(params['image_url'].strip))
+      @photo = Photo.new(params)
 
       if @photo.save
         redirect_to photos_path
@@ -98,7 +99,7 @@ class PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:image, :title)
+    params.require(:photo).permit(:image_url, :title)
   end
 
   def set_s3_direct_post

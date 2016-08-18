@@ -1,18 +1,18 @@
 <h1>Upload Image</h1>
 
-<% if not @photo.image.nil? %>
-	<%= image_tag @photo.image %>
+<% if not @photo.image_url.nil? %>
+	<%= image_tag @photo.image_url.url(:square) %>
 <% end %>
 
 <div class="content">
-  <%= bootstrap_form_for @photo, html: { multipart: true, class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f| %>
+  <%= bootstrap_form_for @photo, enctype: 'multipart/form-data', html: { multipart: true, class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f| %>
 
     <p>
       <%= f.text_field :title %>
     </p>
 
     <p>
-      <%= f.file_field :image %>
+      <%= f.file_field :image_url %>
     </p>
 
     <%= f.submit 'Upload', class: 'btn btn-success' %>
@@ -59,7 +59,7 @@ $(function() {
 
         // extract key and generate URL from response
         var key   = $(data.jqXHR.responseXML).find("Key").text();
-        var url   = '//' + form.data('host') + '/' + key;
+        var url   = 'http://' + form.data('host') + '/' + key;
 
         // create hidden field
         var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
