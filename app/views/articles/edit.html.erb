@@ -29,7 +29,7 @@
 		<div class="center container-fluid photo-area">
 			<div class="image-box">
 				<%= link_to '', remove_from_article_photos_path(:id => @photo.id, :article_id => @article.id), :controller => :photos, :action => :remove_form_article, :method => :patch, :class => 'glyphicon glyphicon-minus btn btn-default', :id => 'add-image-btn' %>
-				<%= image_tag(@photo.image, :size => "260x180") %>
+				<%= image_tag(@photo.image_url, :size => "260x180") %>
 			</div>
 		</div>
 	<% end %>

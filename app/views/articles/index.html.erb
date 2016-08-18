@@ -14,7 +14,7 @@
 				<div class="box-header">
 					<h4 class="box-header-title"> <%= article.title %> </h4>
 				</div>
-				<%= image_tag(@photos.find_by(:id => article.photo_uid).image, :size => "300x150") %> 
+				<%= image_tag(@photos.find_by(:id => article.photo_uid).image_url, :size => "300x150") %> 
 			</div>
 		<% end %>
 
@@ -51,7 +51,7 @@
 						<div class="box-header">
 							<h4 class="box-header-title"> <%= article.title %> </h4>
 						</div>
-						<%= image_tag(@photos.find_by(:id => article.photo_uid).image, :size => "300x150") %> 
+						<%= image_tag(@photos.find_by(:id => article.photo_uid).image_url, :size => "300x150") %> 
 					</div>
 				<% end %>
 
