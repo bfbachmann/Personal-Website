@@ -60,6 +60,7 @@ h3 {
     background-color: black;
     text-align: center;
     position: relative;
+    width: 100%;
 }
 
 a {
@@ -124,7 +125,6 @@ ul.nav.navbar-nav>li>a, a.navbar-brand {
     z-index: 2;
     background-color: #f2f2f2;
     color: black !important;
-    display: inline;
     float: right;
 }
 

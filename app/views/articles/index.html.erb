@@ -5,22 +5,24 @@
 <% @articles.each_with_index do |article, index| %>
 
 	<% if not article.photo_uid.nil? and article.published == true %>
-		<% if index % 3 == 0 %>
-			<div class="row">
-		<% end %>
+
+	<% if index % 3 == 0 %>
+		<div class="row">
+	<% end %>
 	
-		<%= link_to article_path(article) do %>
-			<div class="col-sm-4 box">
+		<div class="col-md-3 col-xs-6 box">
+			<%= link_to article_path(article) do %>
 				<div class="box-header">
 					<h4 class="box-header-title"> <%= article.title %> </h4>
 				</div>
 				<%= image_tag(@photos.find_by(:id => article.photo_uid).image_url, :size => "300x150") %> 
-			</div>
-		<% end %>
+			<% end %>
+		</div>
 
-		<% if index % 3 == 2 %>
-			</div>
-		<% end %>
+	<% if index % 3 == 2 or index == @articles.length - 1 %>
+		</div>
+	<% end %>
+
 	<% end %>
 
 <% end %>
@@ -39,30 +41,9 @@
 	<% else %>
 
 		<% @unpublished.each_with_index do |article, index| %>
-
-			<% if index % 3 == 0 %>
-				<div class="row">
-			<% end %>
-
-			<% if not article.photo_uid.nil? %>
-			
-				<%= link_to article_path(article) do %>
-					<div class="col-sm-4 box">
-						<div class="box-header">
-							<h4 class="box-header-title"> <%= article.title %> </h4>
-						</div>
-						<%= image_tag(@photos.find_by(:id => article.photo_uid).image_url, :size => "300x150") %> 
-					</div>
-				<% end %>
-
-			<% else %>
-				<%= link_to article.title, article_path(article) %>
-			<% end %>
-
-			<% if index % 3 == 2 %>
-				</div>
-			<% end %>
+			<%= link_to article.title, article_path(article) %><br>
 		<% end %>
+
 	<% end %>
 
 <% end %>

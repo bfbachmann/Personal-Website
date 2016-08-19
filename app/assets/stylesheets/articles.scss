@@ -54,7 +54,7 @@ textarea {
     font-size: 16px !important;
 }
 
-.box.col-sm-4 {
+.col-md-3.col-xs-6.box {
     height: 300px !important;
     width: 350px !important;
     border-style: solid;
@@ -69,7 +69,7 @@ textarea {
     position: relative;
 }
 
-.box>img {
+.box>a>img {
     width: 100%;
     height: 70%;
     border-radius: 0;
