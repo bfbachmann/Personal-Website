@@ -63,6 +63,8 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'tinymce-rails'
 
+gem 'rails_stdout_logging'
+
 gem 'rails_serve_static_assets'
 
 gem 'jquery-turbolinks'
