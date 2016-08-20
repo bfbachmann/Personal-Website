@@ -1,0 +1,24 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+gmail_username: 'bfbachmann@gmail.com'
+gmail_password: 'icanshowyoutheworld'
+
+recaptcha_public_key: '6Lc7rCQTAAAAANm9phlODEjBdtKFzwthPruBvcEs'
+recaptcha_private_key: '6Lc7rCQTAAAAAAzJoV1jhvLaq0Xbvt-VIyau0Jqy'
+
+soundcloud_client_id: 'aa849610b1412620cd746da9b8f76b1d'
+soundcloud_client_secret: '08fd3006814964b79fe674c1ead3902a'
+
+s3_access_key_id: 'AKIAJL7NHOPYTS2RY54Q'
+s3_secret_access_key: '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'
+s3_bucket: 'brunoswebsiteimages'
