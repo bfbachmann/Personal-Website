@@ -18,3 +18,8 @@
 
 # Ignore files saved by Paperclip
 public/system/*
+
+# Ignore Serects
+config/application.yml
+config/secrets.yml
+
