@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
 	def index
 		@articles = Article.where.not(photo_uid: nil, published: false).reverse_order
-		@unpublished = Article.where("photo_uid = ? AND published = ?", nil, false) #find_by_sql('SELECT "articles".* FROM "articles" WHERE "articles"."photo_uid" IS NULL OR "articles"."published" = "f"')
+		@unpublished = Article.where(photo_uid: nil).where(published: false)
 		@photos = Photo.all
 
 		render layout: 'all_articles'
