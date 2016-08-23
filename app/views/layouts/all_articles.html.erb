@@ -2,17 +2,16 @@
 
 <div class="articles-center-column container-fluid">
 
-	<div class="page-actions">
-		<%= yield :back_button %>
-		<%= yield :plus_button %>
-	</div>
-
 	<% if notice %>
 		<p class="alert alert-success"><%= notice %></p>
 	<% end %>
 	<% if alert %>
 		<p class="alert alert-danger"><%= alert %></p>
 	<% end %>
+
+	<%= yield :back_button %>
+	<%= yield :plus_button %>
+
 	<%= yield %>
 
 	<hr>

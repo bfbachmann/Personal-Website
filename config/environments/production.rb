@@ -82,20 +82,20 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address                  => "smtp.gmail.com",
     :port                     => "589",
-    :user_name                => ENV['gmail_username'],
-    :password                 => ENV['gmail_password'],
+    :user_name                => ENV['GMAIL_USERNAME'],
+    :password                 => ENV['GMAIL_PASSWORD'],
     :authentication           => "plain",
     :enable_starttls_auto     => true
   }
 
-  # config.paperclip_defaults = {
-  #   storage: :s3,
-  #   s3_credentials: {
-  #     bucket: ENV['S3_BUCKET_NAME'],
-  #     access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-  #     secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-  #     s3_region: ENV['AWS_REGION'],
-  #   }
-  # }
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV['S3_BUCKET_NAME'],
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+      s3_region: ENV['AWS_REGION'],
+    }
+  }
   
 end
