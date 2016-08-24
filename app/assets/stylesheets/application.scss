@@ -41,7 +41,17 @@ h2 {
 
 h3 {
     font-family: Helvetica, Arial, sans-serif !important;
-    font-size: 20px !important;
+    font-size: 25px !important;
+    font-style: normal;
+    font-variant: normal;
+    /*font-weight: 300;*/
+    line-height: 15.4px;
+    margin-top: 5px !important;
+}
+
+h5 {
+    font-family: Helvetica, Arial, sans-serif !important;
+    font-size: 18px !important;
     font-style: normal;
     font-variant: normal;
     /*font-weight: 300;*/
@@ -65,6 +75,10 @@ h3 {
 
 a {
     text-decoration: none !important;
+}
+
+p {
+    font-size: 16px;
 }
 
 .center-column {
@@ -116,6 +130,7 @@ ul.nav.navbar-nav>li>a, a.navbar-brand {
     background-color: #f2f2f2;
     color: black !important;
     position: absolute;
+    left: 2px;
     /*top: 70px;*/
     /*left: 285px;*/
     z-index: 1;
@@ -125,7 +140,8 @@ ul.nav.navbar-nav>li>a, a.navbar-brand {
     z-index: 1;
     background-color: #f2f2f2;
     color: black !important;
-    float: right;
+    right: 2px;
+    position: absolute;
 }
 
 #delete-comment {
@@ -176,5 +192,5 @@ label {
 }
 
 .page-actions {
-    position: absolute;
+    position: relative;
 }

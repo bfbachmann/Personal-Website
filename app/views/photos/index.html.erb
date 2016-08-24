@@ -3,7 +3,7 @@
 <% end %>
 
 
-<div class="center container-fluid">
+<div class="center container">
 
 	<% if @photos.empty? %>
 		<em> Sorry, it doesn't look like there are any images here. </em>
@@ -16,7 +16,7 @@
 			<% end %>
 
 			<div class="col-sm-4">
-				<div class="center container-fluid photo-area">
+				<div class="center container photo-area">
 
 					<div class="image-box"> 
 						<% if not @active_ids.include? photo.id.to_s %>

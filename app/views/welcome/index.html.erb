@@ -139,21 +139,21 @@ function animateRockModels() {
     // Check for wraparound (we want tick to stay positive)
     if (tick < 0) {
         tick = 0;
-    } else {
+    } 
 
-        for (var i = 0; i < numRocks; i++) {
-            var rock = rocks[i];
+    for (var i = 0; i < numRocks; i++) {
+        var rock = rocks[i];
+        var x = i+1;
 
-            rock.position.x = rock.radius * Math.sin(tick * i / (numRocks*1.5) - i);
-            rock.position.y = rock.radius * Math.sin(tick * i / (numRocks*1.5) - 1.2 * i);
-            rock.position.z = rock.radius * Math.cos(tick * i / (numRocks*1.5) - i);
+        rock.position.x = rock.radius * Math.sin(tick * x / (numRocks*1.5) - i);
+        rock.position.y = rock.radius * Math.sin(tick * x / (numRocks*1.5) - 1.2 * i);
+        rock.position.z = rock.radius * Math.cos(tick * x / (numRocks*1.5) - i);
 
-            rock.rotateX(i / (Math.pow(numRocks, 2)));
-            rock.rotateY(i / (Math.pow(numRocks, 3)));
-            rock.rotateY(i / (Math.pow(numRocks, 2)));
-        }
-
+        rock.rotateX(i / (Math.pow(numRocks, 2)));
+        rock.rotateY(i / (Math.pow(numRocks, 3)));
+        rock.rotateY(i / (Math.pow(numRocks, 2)));
     }
+
 }
 
 </script>
