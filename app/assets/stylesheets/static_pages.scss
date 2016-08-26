@@ -28,6 +28,7 @@ img {
     border-width: 1px;
     border-color: #f2f2f2;
     filter: brightness(100%);
+    max-width: 300px !important;
 }
 
 img.resume:hover {
@@ -80,4 +81,13 @@ a.glyphicon.glyphicon-play-circle {
 	position: absolute;
 	top: 2px;
 	left: 2px;
+}
+
+.no-padding {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+
+.align-left{
+	text-align: left;
 }
