@@ -1,56 +1,53 @@
-<div class="container no-padding">
-	<div class="col-md-6 visualizer-col">
-		<%= link_to '', static_pages_visualizer_path, :class => "glyphicon glyphicon-play-circle", :target => '_blank' %>
+<div class="col-md-12">
+
+	<div class="col-md-6" style="margin-bottom: 20px;">
+		<%= link_to '', static_pages_visualizer_path, :class => "glyphicon glyphicon-play-circle", :target => '_blank', :style => 'left: 17px;' %>
 
 		<%= link_to image_tag("visualizer.png", width: '700', :class => 'img-responsive hvr-glow'), static_pages_visualizer_path, target: "_blank" %>
 	</div>
 
-	<div class="col-md-6 visualizer align-left">
+	<div class="col-md-6 align-left">
 		<h3 class="proj-head"> Three.js Audio Visualizer &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/Three.js-Audio-Visualizer', :target => '_blank', :class => 'proj-link' %> </h3>
 		<p>
 			Built in pure Javascript using the THREE.js graphics library and WebAudio APIs. My script loads a sound clip, initializes the visualizer, and starts playing the sound. On each render call the visualizer queries the analyzer for the volume at certain frequency intervals and uses this volume reading to adjust the brightness of the light corresponding to that frequency.
 		</p>
 	</div>
-</div>
 
-<hr>
-	
-<div class="container no-padding" style="position: relative;">
-		<%= link_to '', 'https://www.youtube.com/watch?v=JK2lKgh4JSc', :class => "glyphicon glyphicon-play-circle", :target => '_blank', :style => "left: 17px;" %>
+	<hr style="width: 100%;">
+
+	<div class="col-md-12">
+		<%= link_to '', 'https://www.youtube.com/watch?v=JK2lKgh4JSc', :class => "glyphicon glyphicon-play-circle", :target => '_blank', :style => 'left: 17px;' %>
 
 		<%= link_to image_tag("game.png", :class => 'img-responsive game-image hvr-glow', :style => "background-size: cover;"), 'https://www.youtube.com/watch?v=JK2lKgh4JSc', target: "_blank" %>
+	</div>
 
-		<div class="col-sm-12 align-left">
-			<h3 class="proj-head"> Third-person Adventure Game &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/Unity-3rd-Person-Game', :target => '_blank', :class => 'proj-link' %> </h3>
-		</div>
-</div>
+	<div class="col-md-12 align-left">
+		<h3 class="proj-head"> Third-person Adventure Game &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/Unity-3rd-Person-Game', :target => '_blank', :class => 'proj-link' %> </h3>
+	</div>
 
-<div class="container no-padding">
-		<div class="col-md-6 align-left">
+	<div class="col-md-6 align-left">
 
-			<h5> Player Controller: </h5>
-			<p>Player moves forward, backward, left, and right with the W, S, A, and D keys respectively. Rotation is handled using the position of the mouse. The shift key is used to speed up character movement when grounded (basically sprint), and the space key makes the character jump when grounded. To pick up objects the user must stand just behind them and press and hold the right mouse button, throwing is performed with the left mouse button while holding the object. I am however constantly tweaking this mechanic. All character movement is relative to the position and rotation of the camera which is always at a fixed offset from the player.</p>
+		<h5> Player Controller: </h5>
+		<p>Player moves forward, backward, left, and right with the W, S, A, and D keys respectively. Rotation is handled using the position of the mouse. The shift key is used to speed up character movement when grounded (basically sprint), and the space key makes the character jump when grounded. To pick up objects the user must stand just behind them and press and hold the right mouse button, throwing is performed with the left mouse button while holding the object. I am however constantly tweaking this mechanic. All character movement is relative to the position and rotation of the camera which is always at a fixed offset from the player.</p>
 
-			<h5>Bird Companion Controller:</h5>
-			<p>The bird follows the player. It will fly towards the player at a speed proportional to their separation. Its rotation is always aligned with its direction of motion. When the bird is within a certain distance of the player he it will begin to circle above the player.</p>
+		<h5>Bird Companion Controller:</h5>
+		<p>The bird follows the player. It will fly towards the player at a speed proportional to their separation. Its rotation is always aligned with its direction of motion. When the bird is within a certain distance of the player he it will begin to circle above the player.</p>
 
-		</div>
-		<div class="col-md-6 align-left">
-			<h5>Animations:</h5>
-			<p>All character animations are mapped to their current movement state. Animations for the main character include holding objects, standing, walking forward and backward, side-strafing, and jumping or a combination of holding objects and another of the aforementioned animations. The only current animations for the bird are flight and sitting animations.</p>
+	</div>
+	<div class="col-md-6 align-left">
+		<h5>Animations:</h5>
+		<p>All character animations are mapped to their current movement state. Animations for the main character include holding objects, standing, walking forward and backward, side-strafing, and jumping or a combination of holding objects and another of the aforementioned animations. The only current animations for the bird are flight and sitting animations.</p>
 
-			<h5>Environment:</h5>
-			<p>The environment is made up of an elevator, some basic terrain, and a series of platforms and trampolines that the player can use to get to otherwise unreachable parts of the map.</p>
-				
-			<h5>Features In Progress:</h5>
-			<p>I am currently working on newer, more complex friendly and enemy character AI, animations and models, see Issues above for more images. Current TODOs also include stopping camera and held-object clipping and adding some much needed sound effects.</p>
+		<h5>Environment:</h5>
+		<p>The environment is made up of an elevator, some basic terrain, and a series of platforms and trampolines that the player can use to get to otherwise unreachable parts of the map.</p>
+			
+		<h5>Features In Progress:</h5>
+		<p>I am currently working on newer, more complex friendly and enemy character AI, animations and models, see Issues above for more images. Current TODOs also include stopping camera and held-object clipping and adding some much needed sound effects.</p>
 
-		</div>
-</div>
+	</div>
 
-<hr>
+	<hr style="width: 100%;">
 
-<div class="container no-padding">
 	<div class="col-md-6 align-left">
 		<h3 class="proj-head"> OpenGL Particle Effects &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/OpenGL-Game', :target => '_blank', :class => 'proj-link' %> </h3>
 		<p>
@@ -62,4 +59,5 @@
 
 		<%= link_to image_tag("particles.png", :class => 'img-responsive particles-img hvr-glow'), 'https://www.youtube.com/watch?v=O12KDMdY7jA', target: "_blank" %>
 	</div>
+
 </div>
