@@ -97,5 +97,7 @@ Rails.application.configure do
       s3_region: ENV['AWS_REGION'],
     }
   }
+
+  config.force_ssl = true;
   
 end
