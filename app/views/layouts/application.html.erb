@@ -4,6 +4,8 @@
 
 <% if controller_name == "sessions" or controller_name == "registrations" %>
 	<div class="container" style="max-width: 700px;">
+<% elsif controller_name == "articles" and controller.action_name == "show" or controller.action_name == "edit" or controller.action_name == "new" %>
+	<div class="container" style="max-width: 900px;">	
 <% else %>
 	<div class="container">
 <% end %>

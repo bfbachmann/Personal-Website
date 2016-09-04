@@ -37,7 +37,7 @@
 	<h2>Unpublished</h2>
 
 	<% if @unpublished.count == 0 %>
-		<p> <em> Sorry, it doesn't look like there are any articles here </em></p>
+		<p> <em> There are no unpublished articles </em></p>
 	<% else %>
 
 		<% @unpublished.each_with_index do |article, index| %>

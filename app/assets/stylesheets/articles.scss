@@ -43,6 +43,7 @@ textarea {
 .full-article {
     word-wrap: break-word;
     text-align: left;
+    max-width: 900px;
 }
 
 .full-article>h3 {
@@ -54,7 +55,7 @@ textarea {
     font-size: 16px !important;
 }
 
-.col-md-3.col-xs-6.box {
+.col-md-3.box {
     height: 300px !important;
     width: 350px !important;
     border-style: solid;
