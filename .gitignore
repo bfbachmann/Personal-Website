@@ -22,4 +22,5 @@ public/system/*
 # Ignore Serects
 config/application.yml
 config/secrets.yml
+config/application.yml.erb
 
