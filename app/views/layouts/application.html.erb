@@ -1,6 +1,12 @@
 <%= render 'layouts/navbar' %>
 
-<div class="container">
+<%= yield :header_image %>
+
+<% if controller_name == "sessions" or controller_name == "registrations" %>
+	<div class="container" style="max-width: 700px;">
+<% else %>
+	<div class="container">
+<% end %>
 
 	<div class="page-actions">
 		<%= yield :back_button %>

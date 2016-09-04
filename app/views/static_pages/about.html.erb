@@ -1,4 +1,6 @@
-<%= image_tag "/assets/goggles.jpg", width: '100%', :class => 'img-fluid', :style => 'border-radius: 0px; margin-top: 20px; margin-bottom: 30px;' %>
+<%= content_for :header_image do %>
+	<%= image_tag "/assets/goggles.jpg", width: '100%', :class => 'img-fluid', :style => 'border-radius: 0px; margin-bottom: 30px;' %>
+<% end %>
 
 <div class="content" style="margin-bottom: 30px;">
 

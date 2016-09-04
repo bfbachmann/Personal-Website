@@ -17,7 +17,11 @@
 
 <body>
 
-<nav class="navbar navbar-custom navbar-top">
+<% if action_name == "about" %>
+	<nav class="navbar navbar-custom navbar-top" style="margin-bottom: 0px !important;">
+<% else %>
+	<nav class="navbar navbar-custom navbar-top">
+<% end %>	
 	<div class="container-fluid">
 		<div class="navbar-header">
 		  <%= link_to '', welcome_index_path, :class => "navbar-brand glyphicon glyphicon-home" %>
@@ -32,22 +36,20 @@
 			<% end %>
 		</ul>
 
-		<%- if user_signed_in? %>
-		  <a class="navbar-center"> Signed in as <strong> <%= current_user.display_name %>
-			<% if current_user.try(:admin?) %>
-				(Admin)
-			<% end %>
-			</strong>
-		  </a>
-		<% end %>
-
-
 		<ul class="nav navbar-nav navbar-right">
 
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Accounts <span class="caret"></span></a>
-				<ul class="dropdown-menu">
+				<%- if user_signed_in? %>
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_user.display_name %>
+					<% if current_user.try(:admin?) %>
+						(Admin)
+					<% end %>
+				  <span class="caret"></span></a>
+			    <% else %>
+				    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Accounts <span class="caret"></span></a>
+				<% end %>
 					
+				<ul class="dropdown-menu">
 					<%- if not user_signed_in? %>
 						<li> <%= link_to 'Log In', new_user_session_path %> </li>
 						<li role="separator" class="divider"></li>
