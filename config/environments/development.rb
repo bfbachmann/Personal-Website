@@ -45,4 +45,6 @@ Rails.application.configure do
   # Set delivery method
   config.action_mailer.delivery_method = :letter_opener
 
+  config.force_ssl = false
+
 end
