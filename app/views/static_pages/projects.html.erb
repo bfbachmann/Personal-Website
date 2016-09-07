@@ -1,73 +1,83 @@
-<!-- <div class="container"> -->
+<div class="row">
+	<div class="col-sm-6">
+		<%= link_to '', static_pages_visualizer_path, :class => "glyphicon glyphicon-play-circle", :target => '_blank', :style => "left: 17px;" %>
 
-	<div class="row">
-		<div class="col-sm-6">
-			<%= link_to '', static_pages_visualizer_path, :class => "glyphicon glyphicon-play-circle", :target => '_blank', :style => "left: 17px;" %>
-
-			<%= link_to image_tag("visualizer.png", width: '100%', :class => 'img-responsive hvr-glow'), static_pages_visualizer_path, target: "_blank" %>
-		</div>
-
-		<div class="col-sm-6 align-left container">
-			<h3 class="proj-head"> Three.js Audio Visualizer &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/Three.js-Audio-Visualizer', :target => '_blank', :class => 'proj-link' %> </h3>
-			<p>
-				Built in pure Javascript using the THREE.js graphics library and WebAudio APIs. My script loads a sound clip, initializes the visualizer, and starts playing the sound. On each render call the visualizer queries the analyzer for the volume at certain frequency intervals and uses this volume reading to adjust the brightness of the light corresponding to that frequency.
-			</p>
-		</div>
+		<%= link_to image_tag("visualizer.png", width: '100%', :class => 'img-responsive hvr-glow'), static_pages_visualizer_path, target: "_blank" %>
 	</div>
 
-	<hr style="width: 100%;">
-
-	<div class="row">
-		<div class="col-sm-12 container">
-			<%= link_to '', 'https://www.youtube.com/watch?v=JK2lKgh4JSc', :class => "glyphicon glyphicon-play-circle", :target => '_blank', :style => 'left: 17px;' %>
-
-			<%= link_to image_tag("game.png", :class => 'img-responsive game-image hvr-glow', :style => "background-size: cover;"), 'https://www.youtube.com/watch?v=JK2lKgh4JSc', target: "_blank" %>
-		</div>
+	<div class="col-sm-6 align-left container">
+		<h3 class="proj-head"> Three.js Audio Visualizer &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/Three.js-Audio-Visualizer', :target => '_blank', :class => 'proj-link' %> </h3>
+		<p>
+			Built in pure Javascript using the THREE.js graphics library and WebAudio APIs. My script loads a sound clip, initializes the visualizer, and starts playing the sound. On each render call the visualizer queries the analyzer for the volume at certain frequency intervals and uses this volume reading to adjust the brightness of the light corresponding to that frequency.
+		</p>
 	</div>
+</div>
 
-	<div class="row">
-		<div class="col-sm-12 align-left container">
-			<h3 class="proj-head"> Third-person Adventure Game &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/Unity-3rd-Person-Game', :target => '_blank', :class => 'proj-link' %> </h3>
-		</div>
+<hr style="width: 100%;">
+
+<div class="row">
+	<div class="col-sm-12 container">
+		<%= link_to '', 'https://www.youtube.com/watch?v=JK2lKgh4JSc', :class => "glyphicon glyphicon-play-circle", :target => '_blank', :style => 'left: 17px;' %>
+
+		<%= link_to image_tag("game.png", :class => 'img-responsive game-image hvr-glow', :style => "background-size: cover;"), 'https://www.youtube.com/watch?v=JK2lKgh4JSc', target: "_blank" %>
 	</div>
+</div>
 
-	<div class="row">
-		<div class="col-sm-6 align-left container">
-
-			<h5> Player Controller: </h5>
-			<p>Player moves forward, backward, left, and right with the W, S, A, and D keys respectively. Rotation is handled using the position of the mouse. The shift key is used to speed up character movement when grounded (basically sprint), and the space key makes the character jump when grounded. To pick up objects the user must stand just behind them and press and hold the right mouse button, throwing is performed with the left mouse button while holding the object. I am however constantly tweaking this mechanic. All character movement is relative to the position and rotation of the camera which is always at a fixed offset from the player.</p>
-
-			<h5>Bird Companion Controller:</h5>
-			<p>The bird follows the player. It will fly towards the player at a speed proportional to their separation. Its rotation is always aligned with its direction of motion. When the bird is within a certain distance of the player he it will begin to circle above the player.</p>
-
-		</div>
-		<div class="col-sm-6 align-left container">
-			<h5>Animations:</h5>
-			<p>All character animations are mapped to their current movement state. Animations for the main character include holding objects, standing, walking forward and backward, side-strafing, and jumping or a combination of holding objects and another of the aforementioned animations. The only current animations for the bird are flight and sitting animations.</p>
-
-			<h5>Environment:</h5>
-			<p>The environment is made up of an elevator, some basic terrain, and a series of platforms and trampolines that the player can use to get to otherwise unreachable parts of the map.</p>
-				
-			<h5>Features In Progress:</h5>
-			<p>I am currently working on newer, more complex friendly and enemy character AI, animations and models, see Issues above for more images. Current TODOs also include stopping camera and held-object clipping and adding some much needed sound effects.</p>
-
-		</div>
+<div class="row">
+	<div class="col-sm-12 align-left container">
+		<h3 class="proj-head"> Third-person Adventure Game &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/Unity-3rd-Person-Game', :target => '_blank', :class => 'proj-link' %> </h3>
 	</div>
+</div>
 
-	<hr style="width: 100%;">
+<div class="row">
+	<div class="col-sm-6 align-left container">
 
-	<div class="row">
-		<div class="col-sm-6 align-left container">
-			<h3 class="proj-head"> OpenGL Particle Effects &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/OpenGL-Game', :target => '_blank', :class => 'proj-link' %> </h3>
-			<p>
-				Built from scratch in C++ on OpenGL. The program tracks a number of parameters and uses them to control the motion of the particles in the simulation. Effects include gravity, mouse-tracking draw patterns, particle emission, and circular orbits among others. This project was developed with minimal memory usage and high performance in mind. All particle positions are updated in a single OpenGL canvas draw call as a result.
-			</p>
-		</div>
-		<div class="col-sm-6 container">
-			<%= link_to '', 'https://www.youtube.com/watch?v=O12KDMdY7jA', :class => "glyphicon glyphicon-play-circle", :target => '_blank', :style => "left: 17px;" %>
+		<h5> Player Controller: </h5>
+		<p>Player moves forward, backward, left, and right with the W, S, A, and D keys respectively. Rotation is handled using the position of the mouse. The shift key is used to speed up character movement when grounded (basically sprint), and the space key makes the character jump when grounded. To pick up objects the user must stand just behind them and press and hold the right mouse button, throwing is performed with the left mouse button while holding the object. I am however constantly tweaking this mechanic. All character movement is relative to the position and rotation of the camera which is always at a fixed offset from the player.</p>
 
-			<%= link_to image_tag("particles.png", :class => 'img-responsive particles-img hvr-glow'), 'https://www.youtube.com/watch?v=O12KDMdY7jA', target: "_blank" %>
-		</div>
+		<h5>Bird Companion Controller:</h5>
+		<p>The bird follows the player. It will fly towards the player at a speed proportional to their separation. Its rotation is always aligned with its direction of motion. When the bird is within a certain distance of the player he it will begin to circle above the player.</p>
+
 	</div>
+	<div class="col-sm-6 align-left container">
+		<h5>Animations:</h5>
+		<p>All character animations are mapped to their current movement state. Animations for the main character include holding objects, standing, walking forward and backward, side-strafing, and jumping or a combination of holding objects and another of the aforementioned animations. The only current animations for the bird are flight and sitting animations.</p>
 
-<!-- </div> -->
+		<h5>Environment:</h5>
+		<p>The environment is made up of an elevator, some basic terrain, and a series of platforms and trampolines that the player can use to get to otherwise unreachable parts of the map.</p>
+			
+		<h5>Features In Progress:</h5>
+		<p>I am currently working on newer, more complex friendly and enemy character AI, animations and models, see Issues above for more images. Current TODOs also include stopping camera and held-object clipping and adding some much needed sound effects.</p>
+
+	</div>
+</div>
+
+<hr style="width: 100%;">
+
+<div class="row">
+	<div class="col-sm-6 align-left container">
+		<h3 class="proj-head"> OpenGL Particle Effects &nbsp; <%= link_to '< source />', 'https://github.com/bfbachmann/OpenGL-Game', :target => '_blank', :class => 'proj-link' %> </h3>
+		<p>
+			Built from scratch in C++ on OpenGL. The program tracks a number of parameters and uses them to control the motion of the particles in the simulation. Effects include gravity, mouse-tracking draw patterns, particle emission, and circular orbits among others. This project was developed with minimal memory usage and high performance in mind. All particle positions are updated in a single OpenGL canvas draw call as a result.
+		</p>
+	</div>
+	<div class="col-sm-6 container">
+		<%= link_to '', 'https://www.youtube.com/watch?v=O12KDMdY7jA', :class => "glyphicon glyphicon-play-circle", :target => '_blank', :style => "left: 17px;" %>
+
+		<%= link_to image_tag("particles.png", :class => 'img-responsive particles-img hvr-glow'), 'https://www.youtube.com/watch?v=O12KDMdY7jA', target: "_blank" %>
+	</div>
+</div>
+
+<hr style="width: 100%;">
+
+<div class="row">
+	<div class="col-sm-6 container">
+		<%= link_to image_tag("sandbox.png", :class => 'img-responsive particles-img hvr-glow'), 'http://scarfedigitalsandbox.teach.educ.ubc.ca/', target: "_blank" %>
+	</div>
+	<div class="col-sm-6 align-left container">
+		<h3 class="proj-head"> Scarfe Digital Sandbox </h3>
+		<p>
+			The Scarfe Digital Sandbox is a website maintained by UBC Faculty of Education’s Educational Technology Support department. During my time working for this department I redesigned this website with a fellow student. The Sandbox's purpose is to serve as a resource space teacher candidates can use to discover or acquaint themselves with new technologies for teaching and learning. I played a role in almost every aspect of the site, however, much of my work went into the Home and Resources pages. 
+		</p>
+	</div>
+</div>
