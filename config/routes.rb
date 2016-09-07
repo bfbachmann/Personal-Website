@@ -31,6 +31,10 @@ Rails.application.routes.draw do
 
   resources :messages
 
+  get 'messages/success'
+
+  get 'messages/failure'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -17,10 +17,10 @@ class MessagesController < ApplicationController
 
 	  	if @message.save
 	  		UserMailer.send_email_to_admin(current_user, @message).deliver
-	  		redirect_to welcome_index_path
+	  		redirect_to 'success'
 	  	else
 	  		@user = current_user
-	  		render 'new'
+	  		render 'failure'
 	  	end
 	else
 		redirect_to welcome_index_path

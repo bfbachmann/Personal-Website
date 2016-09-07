@@ -10,15 +10,16 @@ a.glyphicon.glyphicon-trash  {
 }
 
 .trash-icon {
-    float: right;
+    position: absolute;
+    top: 0px;
+    right: 0px;
     background-color: #f2f2f2;
     color: red !important;
     display: inline;
 }
 
 .photo-area {
-	width: 100%;
-    overflow: auto;
+	display: flex;
     padding: 0;
 }
 
@@ -27,8 +28,7 @@ a.glyphicon.glyphicon-trash  {
 }
 
 .image-box>a>img {
-    width: 100%;
-    height: 100%;
+    left: 0;
 }
 
 .images-center-column {
