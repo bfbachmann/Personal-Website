@@ -1,3 +1,9 @@
+<% if current_user.try(:admin?) %>
+	<%= content_for :plus_button do %>
+		<%= link_to '', new_article_path, :class => "btn btn-default glyphicon glyphicon-plus", :id => "plus-button" %>
+	<% end %>
+<% end %>
+
 <% if @articles.count == 0 %>
 	<p> <em> Sorry, it doesn't look like there are any articles here </em></p>
 <% end %>
@@ -27,23 +33,13 @@
 
 <% end %>
 
-<% if current_user.try(:admin?) %>
-	<%= content_for :plus_button do %>
-		<%= link_to '', new_article_path, :class => "btn btn-default glyphicon glyphicon-plus", :id => "plus-button" %>
-	<% end %>
-
+<% if current_user.try(:admin?) and @unpublished.count != 0 %>
 	<hr>
 
 	<h2>Unpublished</h2>
 
-	<% if @unpublished.count == 0 %>
-		<p> <em> There are no unpublished articles </em></p>
-	<% else %>
-
-		<% @unpublished.each_with_index do |article, index| %>
-			<%= link_to article.title, article_path(article) %><br>
-		<% end %>
-
+	<% @unpublished.each_with_index do |article, index| %>
+		<%= link_to article.title, article_path(article) %><br>
 	<% end %>
 
 <% end %>

@@ -29,12 +29,6 @@ Rails.application.routes.draw do
     patch 'publish'
   end
 
-  resources :messages
-
-  get 'messages/success'
-
-  get 'messages/failure'
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
