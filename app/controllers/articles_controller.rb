@@ -24,8 +24,8 @@ class ArticlesController < ApplicationController
 			@article = Article.new(article_params)
 			@article.published = false
 		    @photos = Photo.all
-    
-			if @article.save 
+
+			if @article.save
 				render 'edit'
 			else
 				render 'new'
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
 		end
 	end
 
-	def edit 
+	def edit
 		if can? :edit, Article
 			@article = Article.find(params[:id])
 			@photos = Photo.all
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
 		if can? :show, Article
 			@article = Article.find(params[:id])
 			@comment = Comment.new(article_id: @article.id)
-		else 
+		else
 			redirect_to welcome_index_path
 		end
 	end
@@ -74,7 +74,7 @@ class ArticlesController < ApplicationController
 			@article.destroy
 
 			redirect_to articles_path
-		else 
+		else
 			redirect_to welcome_index_path
 		end
 	end
@@ -88,7 +88,7 @@ class ArticlesController < ApplicationController
 
 			if @article.save
 				redirect_to articles_path
-			else 
+			else
 				render 'edit'
 			end
 		else
