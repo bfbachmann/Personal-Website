@@ -1,3 +1,3 @@
 == README
 
-This is a simple blog application I am building to familiarize myself with Ruby on Rails.
+This is a simple blog application I am building to familiarize myself with Ruby on Rails!
